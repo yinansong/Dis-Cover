@@ -60,7 +60,25 @@ class App < Sinatra::Base
   # edit a manhole cover entry
   get('/:id/edit') do
     @id = params[:id]
+    @manhole = JSON.parse($redis.get("manholes:#{@id}"))
     render(:erb, :edit)
+  end
+  put('/:id') do
+    @id = params[:id]
+    updated_manhole = {
+      "img" => params[:img],
+      "country" => params[:coutry],
+      "state_or_province" => params[:state_or_province],
+      "city" => params[:city],
+      "year" => params[:year],
+      "color" => params[:color],
+      "color" => params[:color],
+      "shape" => params[:shape],
+      "note" => params[:note],
+      "tags" => params[:tags],
+      "id" => @id
+    }
+    $redis.set("manholes:#{@id}", updated_manhole.to_json)
     redirect to("/#{@id}")
   end
 

@@ -2,45 +2,61 @@
 
   <a href="/"><img class="close" src="../images/nonmanholes/close.png"></a>
 
-  <h3 style="padding-bottom: 30px;">Found a New Manhole?</h3>
+  <h3 style="padding-bottom: 30px;">Update a Manhole Cover Entry?</h3>
 
-  <form method="POST" action="/">
+  <form method="POST" action="/<%= @id %>">
 
     <label for="img">Image&nbsp;</label>
-    <input type="text" name="img" id="img" />
+    <input type="text" name="img" id="img" placeholder="<%= @manhole["img"] %>" />
     <br/><br/>
 
     <label for="country">Country&nbsp;</label>
-    <input type="text" name="country" id="country" />
+    <input type="text" name="country" id="country" placeholder="<%= @manhole["country"] %>" />
     <br/><br/>
 
     <label for="State_or_province">State/Province&nbsp;</label>
-    <input type="text" name="State_or_province" id="State_or_province" />
+    <input type="text" name="state_or_province" id="state_or_province" placeholder="<%= @state_or_province %>" />
     <br/><br/>
 
     <label for="city">City&nbsp;</label>
-    <input type="text" name="city" id="city" />
+    <input type="text" name="city" id="city" placeholder="<%= @manhole["city"] %>" />
     <br/><br/>
 
     <label for="year">Year&nbsp;</label>
     <input type="text" name="year" id="year" />
     <br/><br/>
 
-    <label for="color">Color&nbsp;</label>
-    <input type="text" name="color" id="color" />
+    <label for="color">Color&nbsp;</label><br>
+        <input type="radio" name="color" value="black" checked>black
+        <input type="radio" name="color" value="grey">grey
+        <input type="radio" name="color" value="grey">white
+        <input type="radio" name="color" value="red">red
+        <input type="radio" name="color" value="orange">orange
+        <input type="radio" name="color" value="yellow">yellow
+        <input type="radio" name="color" value="green">green
+        <input type="radio" name="color" value="blue">blue
+        <input type="radio" name="color" value="grey">purple
+        <input type="radio" name="color" value="brown">brown
+        <input type="radio" name="color" value="grey">other
     <br/><br/>
 
-    <label for="shape">Shape&nbsp;</label>
-    <input type="text" name="shape" id="shape" />
+    <label for="shape">Shape&nbsp;</label><br>
+        <input type="radio" name="shape" value="circle" checked>circle
+        <input type="radio" name="shape" value="square">square
+        <input type="radio" name="shape" value="rectangle">rectangle
+        <input type="radio" name="shape" value="triangle">triangle
+        <input type="radio" name="shape" value="other">other
     <br/><br/>
 
     <label for="note">Note&nbsp;</label>
-    <input type="text" name="note" id="note" />
+    <input type="text" name="note" id="note" placeholder="<%= @manhole["note"] %>" />
     <br/><br/>
 
     <label for="tags">Tags&nbsp;</label>
-    <input type="text" name="tags" id="tags" />
+    <input type="text" name="tags" id="tags" placeholder="<%= @manhole["tags"] %>" />
     <br/><br/>
+
+    <input type="hidden" name="_method" value="PUT">
 
     <input type="submit" value="submit" />
 
