@@ -50,10 +50,24 @@ class App < Sinatra::Base
     render(:erb, :about)
   end
 
+  # delete a manhole cover entry
+  get('/:id/delete') do
+    @id = params[:id]
+    $redis.del("manholes:#{@id}")
+    redirect to("/")
+  end
+
+  # edit a manhole cover entry
+  get('/:id/edit') do
+    @id = params[:id]
+    $redis.del("manholes:#{@id}")
+    redirect to("/#{@id}")
+  end
+
   # see a single manhole for details
   get('/:id') do
-    id = params[:id]
-    @chosen_manhole = JSON.parse($redis.get("manholes:#{id}"))
+    @id = params[:id]
+    @chosen_manhole = JSON.parse($redis.get("manholes:#{@id}"))
     render(:erb, :detail)
   end
 
