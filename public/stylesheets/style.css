@@ -91,7 +91,7 @@ section {
 #menu {
   z-index: 999;
   position: fixed;
-  top: 21px;
+  top: 25px;
           left: 29px;
           font-family: 'Hammersmith One', sans-serif;
 }
@@ -511,7 +511,7 @@ p#meta_location {
   font-size: 13px;
 }
 
-#summary {
+#menu_right {
   position: fixed;
   right: 25px;
   padding: 16px 10px;

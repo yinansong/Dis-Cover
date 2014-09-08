@@ -80,17 +80,27 @@
             </div>
           </th>
         </thead>
-    </table>
-
-    <!-- TITLE OPTIONAL
-        <div id="title_wrap">
-          <div id="top_line"> <div>
-          <h1>1001 Manhole Covers</h1>
-          <h2>19 Cities in 7 Countries<h2>
-          <div id="bottom_line"> <div>
-        </div>
-    -->
+      </table>
     </div>
+
+    <div id="menu_right">
+      <table>
+        <thead>
+          <th><span id="summary"><%= @manholes.size %> manhole covers from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries currently</span>
+          </th>
+          <th> | </th>
+          <th>
+            <% if session[:access_token] %>
+              <a href="/logout">LOGOUT</a>
+            <% else %>
+              <a href="<%= @fb_login_url %>">LOGIN</a>
+            <% end %>
+          </th>
+        </thead>
+      </table>
+    </div>
+
     <%= yield %>
+
   </body>
 </html>
