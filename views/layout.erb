@@ -1,18 +1,96 @@
 <!doctype html>
+<html lang="en">
 <html>
   <head>
     <meta charset="utf-8">
 
-    <title>project_manhole</title>
+    <title>Dis-Cover</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato|Hammersmith+One' rel='stylesheet' type='text/css'>
+
+    <!-- stylesheets -->
+    <!-- <link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" media="all"> -->
     <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- javascript and jquery -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+    <script src="pace/pace.min.js"></script>
+    <link href="pace/style1.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".item").draggable(
+          {cursor:"move",
+          cursorAt: { top: 100, left: 100}
+          containment:"body"
+          }
+        );
+      });
+    </script>
+
+    <script type="text/javascript">
+    //for order after drag
+    $(document).ready(function() {
+
+      $('.item').draggable().on('mousedown', function() {
+        $('.item').not(this).css('z-index', '100');
+        $(this).css('z-index', '998');
+      });
+      $('button').click(function() {
+        $(this).closest('div.item').hide(0);
+        });
+    });
+    </script>
+
+    <script type='text/javascript'>
+      function setDivPos() {
+          for (i=1; i<=50; i++) {
+            var x = Math.floor(Math.random()*1200);
+            var y = Math.floor(Math.random()*750);
+            document.getElementById('box'+i).style.left = x + 'px';
+            document.getElementById('box'+i).style.top = y + 'px';
+        }
+      }
+    </script>
   </head>
 
-  <body>
+  <body onload='setDivPos();'>
+    <!-- menu bar -->
+    <div id="menu">
+      <table id="menu_table">
+        <thead>
+          <th>
+            <div id="about">
+              <a id="about_tb_text" href="about">ABOUT</a>
+            </div>
+          </th>
+          <th> | <th>
+          <th><a id="shuffle" href="/">SHUFFLE<a></th>
+          <th> | <th>
+          <th>
+            <div id="add">
+              <a id="add_tb_text" href="/add">ADD</a>
+            </div>
+          </th>
+        </thead>
+    </table>
+
+    <!-- TITLE OPTIONAL
+        <div id="title_wrap">
+          <div id="top_line"> <div>
+          <h1>1001 Manhole Covers</h1>
+          <h2>19 Cities in 7 Countries<h2>
+          <div id="bottom_line"> <div>
+        </div>
+    -->
+    </div>
     <%= yield %>
   </body>
 </html>

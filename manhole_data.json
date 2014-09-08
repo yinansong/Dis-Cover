@@ -1,0 +1,133 @@
+{
+"manhole_data": [
+    {
+        "img": "images/IMG_0941.png",
+        "country": "China",
+        "province_or_state": "Sichuan",
+        "city": "Chengdu",
+        "year": 2013,
+        "color": "grey",
+        "shape": "round",
+        "style": "logo, repetition",
+        "note": "I think it looks nice.",
+        "tags": "chinatelecom"
+    },
+
+    {
+        "img": "images/IMG_0948.png",
+        "country": "China",
+        "province_or_state": "Sichuan",
+        "city": "Chengdu",
+        "year": 2013,
+        "color": "grey",
+        "shape": "round",
+        "style": "logo, repetition",
+        "note": "I think it looks nice.",
+        "tags": "dirtywater"
+    },
+
+    {
+        "img": "images/IMG_1457.png",
+        "country": "UK",
+        "province_or_state": "N/A",
+        "city": "London",
+        "year": 2012,
+        "color": "purple",
+        "shape": "round",
+        "style": "radiant, dotted line, circle",
+        "note": "It makes me feel dizzy.",
+        "tags": "dirtywater"
+    },
+
+    {
+        "img": "images/IMG_1459.png",
+        "country": "UK",
+        "province_or_state": "N/A",
+        "city": "London",
+        "year": 2012,
+        "color": "purple",
+        "shape": "round",
+        "style": "radiant, arabesque, logo",
+        "note": "DUREY? Is that a clowns name?",
+        "tags": ""
+    },
+
+    {
+        "img": "images/IMG_1461.png",
+        "country": "UK",
+        "province_or_state": "N/A",
+        "city": "London",
+        "year": 2012,
+        "color": "purple",
+        "shape": "round",
+        "style": "radiant, arabesque, logo",
+        "note": "Locking yourself under a manhole isn't a funny idea to me.",
+        "tags": ""
+    },
+
+    {
+        "img": "images/IMG_1466.png",
+        "country": "UK",
+        "province_or_state": "N/A",
+        "city": "London",
+        "year": 2012,
+        "color": "purple",
+        "shape": "round",
+        "style": "radiant, arabesque, logo",
+        "note": "I hope there is some money under this, or I'd be very disappointed.",
+        "tags": ""
+    },
+
+    {
+        "img": "images/IMG_2366.png",
+        "country": "Sweden",
+        "province_or_state": "Vasterbotten",
+        "city": "Umea",
+        "year": 2013,
+        "color": "purple",
+        "shape": "round",
+        "style": "radiant, arabesque, logo",
+        "note": "Go see the world.",
+        "tags": ""
+    },
+
+    {
+        "img": "images/IMG_2373.png",
+        "country": "Sweden",
+        "province_or_state": "Vasterbotten",
+        "city": "Umea",
+        "year": 2013,
+        "color": "purple",
+        "shape": "round",
+        "style": "radiant, arabesque, logo",
+        "note": "It looks like one of those propagnada posters…",
+        "tags": ""
+    },
+
+    {
+        "img": "images/IMG_2407.png",
+        "country": "Sweden",
+        "province_or_state": "Vasterbotten",
+        "city": "Umea",
+        "year": 2013,
+        "color": "purple",
+        "shape": "round",
+        "style": "radiant, arabesque, logo",
+        "note": "That pattern is subtle. I like it.",
+        "tags": ""
+    },
+
+    {
+        "img": "images/IMG_2412.png",
+        "country": "Sweden",
+        "province_or_state": "Vasterbotten",
+        "city": "Umea",
+        "year": 2013,
+        "color": "purple",
+        "shape": "round",
+        "style": "radiant, arabesque, logo",
+        "note": "(Big) O (small) K.",
+        "tags": ""
+    }
+]
+}

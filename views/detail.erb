@@ -1,0 +1,29 @@
+<section id="detail">
+  <a href="/"><img class="close" src="../images/nonmanholes/close.png"></a>
+  <div class="major_image">
+      <img class="big_image" src="<%= @chosen_manhole["img"] %>">
+      <div class="description">
+        <p class="meta_text">Location:&nbsp;<span class="meta_content"><%= @chosen_manhole["city"] %>, <%= @chosen_manhole["province_or_state"] %>, <%= @chosen_manhole["country"] %></span></p><br>
+        <p class="meta_text" id="meta_year">Year:&nbsp;<span class="meta_content"><%= @chosen_manhole["year"] %></span></p><br>
+<!--         <p class="meta_text">Color:&nbsp;<span class="meta_content"><%= @chosen_manhole["color"] %></span></p><br>
+        <p class="meta_text">Shape:&nbsp;<span class="meta_content"><%= @chosen_manhole["shape"] %></span></p><br> -->
+        <p class="meta_text" id="meta_info">Note:&nbsp;<span class="meta_content"><%= @chosen_manhole["note"] %></span></p><br>
+        <p class="meta_text">Tags:&nbsp;<span class="meta_content"><%= @chosen_manhole["tags"] %></span></p>
+        <br>
+        <br>
+        <br>
+        <a href="/edit" class="edit">EDIT</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="" class="delete">DELETE</a>
+      </div>
+  </div>
+  <div id="related_image_part">
+    <div id="divider"></div>
+    <div class="related_image">
+      <img class="small_image" src="images/20130527_0146.png">
+      <img class="small_image" src="images/20130527_0224.png">
+      <img class="small_image" src="images/20130528_0073.png">
+    </div>
+  </div>
+</section>
+
+
+

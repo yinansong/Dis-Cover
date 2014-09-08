@@ -1,0 +1,12 @@
+#whole {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#main {
+    width: 600px;
+}
+
+.other {
+    width: 100px;
+}

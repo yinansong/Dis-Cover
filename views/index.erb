@@ -1,1 +1,12 @@
-<h1>Hello world!</h1>
+<span id="summary"><%= @manholes.size %> manhole covers from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries currently</span>
+
+
+<!-- spread-out manholes -->
+<% @manholes.each_with_index do |manhole_entry, index| %>
+  <div id='box<%= index %>' class='box'>
+    <a href="/<%= manhole_entry["id"] %>"><img class="item" src="<%= manhole_entry["img"] %>" alt="Manhole"></a>
+    <div id="meta_box<%= index %>" class="meta_box">
+      <span class="meta_text"><%= manhole_entry["city"] %>, <%= manhole_entry["province_or_state"] %>, <%= manhole_entry["country"] %> | <%= manhole_entry["year"] %></span>
+    </div>
+  </div>
+<% end %>
