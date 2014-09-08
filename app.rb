@@ -60,7 +60,7 @@ class App < Sinatra::Base
   # edit a manhole cover entry
   get('/:id/edit') do
     @id = params[:id]
-    $redis.del("manholes:#{@id}")
+    render(:erb, :edit)
     redirect to("/#{@id}")
   end
 
@@ -78,7 +78,7 @@ class App < Sinatra::Base
     end
     @number_of_cities_uniq = @cities.uniq.size
     @countries = @manholes.map do |manhole_entry|
-      manhole_entry["country"].downcase
+      manhole_entry["country"]
     end
     @number_of_countries_uniq = @countries.uniq.size
     render(:erb, :index)
