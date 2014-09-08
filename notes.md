@@ -20,7 +20,7 @@
 - found this ticket online: http://bugs.jqueryui.com/ticket/3446
 -
 
-### Just in case you want the old meta-box back
+### Just in case I want the old meta-box back
     <div id="meta_box<%= index %>" class="meta_box">
       <p class="meta_text" id="meta_location"><%= manhole_entry["city"] %>, <%= manhole_entry["province_or_state"] %>, <%= manhole_entry["country"] %></p><br>
       <p class="meta_text" id="meta_year"><%= manhole_entry["year"] %></p><br>
