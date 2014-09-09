@@ -57,20 +57,23 @@ class App < Sinatra::Base
   #######################
 
 
-  # get('/rss') do
-  #   rss = RSS::Maker.make("atom") do |maker|
-  #     maker.channel.author = "matz"
-  #     maker.channel.updated = Time.now.to_s
-  #     maker.channel.about = "http://www.ruby-lang.org/en/feeds/news.rss"
-  #     maker.channel.title = "Dis-Cover"
-  #     maker.items.new_item do |item|
-  #       item.link = "http://www.ruby-lang.org/en/news/2010/12/25/ruby-1-9-2-p136-is-released/"
-  #       item.title = "Ruby 1.9.2-p136 is released"
-  #       item.updated = Time.now.to_s
-  #     end
-  #   end
-  # puts rss
-  # end
+  get('/rss/:id') do
+    id = params[:id]
+    rss = RSS::Maker.make("atom") do |maker|
+      maker.channel.author = "Yinan Song"
+      maker.channel.updated = Time.now.to_s
+      maker.channel.about = "http://aqueous-forest-9034.herokuapp.com/rss"
+      maker.channel.title = "Dis-Cover"
+      maker.items.new_item do |item|
+        item.link = "/manholecovers/#{id}"
+        item.title = "Just another manhole cover!"
+        item.updated = Time.now.to_s
+      end
+    end
+    puts rss
+    @rss = rss
+    render(:erb, :rss.to_s)
+  end
 
   # Error Handling
   not_found do
