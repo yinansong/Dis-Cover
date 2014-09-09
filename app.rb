@@ -89,13 +89,13 @@ class App < Sinatra::Base
       # @tagged_w_manholecover is an array
 
     # show all the blogposts
-
     render(:erb, :blog)
   end
 
   get('/manholecovers/add') do
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     render(:erb, :add)
+    redirect.to('/')
   end
 
   get('/tag/:tagname') do
