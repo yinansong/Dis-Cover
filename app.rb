@@ -202,7 +202,7 @@ class App < Sinatra::Base
 
   get('/logout') do
     session[:access_token] = nil
-    # redirect to("/")
+    redirect to("/")
   end
 
   # delete a manhole cover entry
