@@ -289,7 +289,6 @@ class App < Sinatra::Base
       "id" => index,
     }
     $redis.set("manholes:#{index}", new_manhole.to_json)
-    binding.pry
   end
 
 end
