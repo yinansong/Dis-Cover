@@ -237,8 +237,11 @@ class App < Sinatra::Base
     scope = "public_profile"
     @fb_login_url = "#{fb_base_url}?client_id=#{CLIENT_ID}&redirect_uri=#{REDIRECT_URI}&state=#{state}&scope=#{scope}"
 
-    #for all the manhole covers
+    #for a sample of all the manhole covers
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @manhole_samples = @manholes.sample(10)
+
+    #for the data in the summary line
     @cities = @manholes.map do |manhole_entry|
       manhole_entry["city"].downcase
     end
