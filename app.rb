@@ -3,7 +3,7 @@ require 'sinatra/base'
 require 'redis'
 require 'json'
 require 'uri'
-# require 'pry'
+require 'pry' if ENV['RACK_ENV'] == 'development'
 require 'securerandom'
 require 'rss'
 require 'rack/utils'
@@ -50,7 +50,11 @@ class App < Sinatra::Base
 
   CLIENT_ID = ENV["FB_CLIENT_ID"]
   APP_SECRET = ENV["FB_APP_SECRET"]
-  REDIRECT_URI = "http://aqueous-forest-9034.herokuapp.com/oauth_callback"
+  if ENV['RACK_ENV'] == 'development'
+    REDIRECT_URI = "http://aqueous-forest-9034.herokuapp.com/oauth_callback"
+  else
+    REDIRECT_URI = "http://127.0.0.1:9292/oauth_callback"
+  end
 
   #######################
   # Routes
@@ -62,7 +66,7 @@ class App < Sinatra::Base
     rss = RSS::Maker.make("atom") do |maker|
       maker.channel.author = "Yinan Song"
       maker.channel.updated = Time.now.to_s
-      maker.channel.about = "http://aqueous-forest-9034.herokuapp.com/rss"
+      maker.channel.about = "/rss"
       maker.channel.title = "Dis-Cover"
       maker.items.new_item do |item|
         item.link = "/manholecovers/#{id}"
@@ -149,7 +153,6 @@ class App < Sinatra::Base
     @province_or_state = params["province_or_state"].downcase.split("+").join(" ")
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     @certain_province_or_state_array = @manholes.select do |manhole_entry|
-      # binding.pry if manhole_entry["province_or_state"].nil?
       manhole_entry["province_or_state"].downcase == @province_or_state
     end
     render(:erb, :province_or_state)
@@ -193,13 +196,13 @@ class App < Sinatra::Base
     redirect to("/")
   end
 
-  get('/users') do
-    HTTParty.get("https://graph.facebook.com /{user-id}")
-  end
+  # get('/users') do
+  #   HTTParty.get("https://graph.facebook.com /{user-id}")
+  # end
 
   get('/logout') do
     session[:access_token] = nil
-    redirect to("/")
+    # redirect to("/")
   end
 
   # delete a manhole cover entry
