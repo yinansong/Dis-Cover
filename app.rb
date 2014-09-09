@@ -48,9 +48,9 @@ class App < Sinatra::Base
   # API
   #######################
 
-  CLIENT_ID = "747682725292550"
+  CLIENT_ID = ENV["FB_CLIENT_ID"]
+  APP_SECRET = ENV["FB_APP_SECRET"]
   REDIRECT_URI = "http://127.0.0.1:9292/oauth_callback"
-  APP_SECRET = "2ec23b0f1c89b43edd6290397ba6d680"
 
   #######################
   # Routes
