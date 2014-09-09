@@ -82,12 +82,10 @@
         </thead>
       </table>
     </div>
+
     <div id="menu_right">
       <table>
         <thead>
-          <th><span id="summary"><%= @manholes.size %> manhole covers from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries currently</span>
-          </th>
-          <th> | </th>
           <th>
             <% if session[:access_token] %>
               <a href="/logout">LOGOUT</a>

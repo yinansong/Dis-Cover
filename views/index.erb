@@ -1,3 +1,5 @@
+<span id="summary"><%= @manholes.size %> manhole covers from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries currently&nbsp;&nbsp;|</span>
+
 <!-- spread-out manholes -->
 <% @manholes.each_with_index do |manhole_entry, index| %>
   <div id='box<%= index %>' class='box'>

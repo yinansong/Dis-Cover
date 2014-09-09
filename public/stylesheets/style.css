@@ -527,3 +527,10 @@ p#meta_location {
 .choice {
   font-family: 'Lato', sans-serif;
 }
+
+#summary {
+  position: fixed;
+  padding-top: 21px;
+  right: 100px;
+  z-index: 999;
+}
