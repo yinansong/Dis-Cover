@@ -72,7 +72,7 @@ class App < Sinatra::Base
     end
     puts rss
     @rss = rss
-    render(:erb, :rss.to_s)
+    render(:erb, @rss.to_s)
   end
 
   # Error Handling
