@@ -95,7 +95,6 @@ class App < Sinatra::Base
   get('/manholecovers/add') do
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     render(:erb, :add)
-    redirect.to('/')
   end
 
   get('/tag/:tagname') do
