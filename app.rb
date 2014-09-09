@@ -245,10 +245,6 @@ class App < Sinatra::Base
     render(:erb, :detail)
   end
 
-  get('/') do
-    redirect to('/manholecovers')
-  end
-
   get('/manholecovers') do
     # for login with facebook
     fb_base_url = "https://www.facebook.com/dialog/oauth"
@@ -271,6 +267,10 @@ class App < Sinatra::Base
     end
     @number_of_countries_uniq = @countries.uniq.size
     render(:erb, :index)
+  end
+
+  get('/') do
+    redirect to('/manholecovers')
   end
 
   # add a new manhole cover
