@@ -85,7 +85,7 @@ class App < Sinatra::Base
     # 2 things sent back are code & state
     code = params[:code]
     state = params[:state]
-      # if session[:state] == state
+       if session[:state] == state
         response = HTTParty.get(
           "https://graph.facebook.com/oauth/access_token",
           :query => {
@@ -98,15 +98,14 @@ class App < Sinatra::Base
             "Accept" => "application/json"
           }
         )
-        session[:access_token] = response["access_token"]
-        binding.pry
-      # end
+        session[:access_token] = response.to_s.split("&")[0].split("=")[1]
+      end
     redirect to("/")
   end
 
-  get('/users') do
-    HTTParty.get("https://graph.facebook.com /{user-id}")
-  end
+  # get('/users') do
+  #   HTTParty.get("https://graph.facebook.com /{user-id}")
+  # end
 
   get('/logout') do
     session[:access_token] = nil
@@ -187,7 +186,6 @@ class App < Sinatra::Base
       "state_or_province" => params[:state_or_province],
       "city" => params[:city],
       "year" => params[:year],
-      "color" => params[:color],
       "color" => params[:color],
       "shape" => params[:shape],
       "note" => params[:note],
