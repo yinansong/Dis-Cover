@@ -76,6 +76,42 @@ class App < Sinatra::Base
     render(:erb, :add)
   end
 
+  get('/tag/:tagname') do
+    @tagname = params[:tagname]
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @with_tagname_array = @manholes.select do |manhole_entry|
+      manhole_entry["tags"].split(", ").include?"#{@tagname}"
+    end
+    render(:erb, :tag)
+  end
+
+  get('/year/:year') do
+    @year = params[:year].to_i
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @same_year_array = @manholes.select do |manhole_entry|
+      manhole_entry["year"] == @year
+    end
+    render(:erb, :year)
+  end
+
+  get('/color/:color') do
+    @color = params[:color]
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @certain_color_array = @manholes.select do |manhole_entry|
+      manhole_entry["color"] == @color
+    end
+    render(:erb, :color)
+  end
+
+  get('/shape/:shape') do
+    @shape = params[:shape]
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @certain_shape_array = @manholes.select do |manhole_entry|
+      manhole_entry["shape"] == @shape
+    end
+    render(:erb, :shape)
+  end
+
   get('/about') do
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     render(:erb, :about)

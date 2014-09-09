@@ -1,0 +1,15 @@
+<section>
+  <h3>Manhole Covers with the "<%= @tagname %>" tag </h3>
+  <ul>
+  <% @with_tagname_array.each_with_index do |manhole_entry, index|%>
+      <li>
+        <ul>
+          <a href="/manholecovers/<%= manhole_entry["id"] %>">Manhole Cover <%= index + 1 %>:</a>
+          <li>Location: <%= manhole_entry["city"] %>, <%= manhole_entry["province_or_state"] %>, <%= manhole_entry["country"] %></li>
+          <li>Year: <%= manhole_entry["year"] %></li>
+          <li>ID Number: <%= manhole_entry["id"] %></li>
+        </ul>
+      </li>
+  <% end %>
+  </ul>
+</section>

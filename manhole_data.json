@@ -7,7 +7,7 @@
         "city": "Chengdu",
         "year": 2013,
         "color": "grey",
-        "shape": "round",
+        "shape": "circle",
         "note": "I think it looks nice.",
         "tags": "chinatelecom, china"
     },
@@ -19,7 +19,7 @@
         "city": "Chengdu",
         "year": 2013,
         "color": "grey",
-        "shape": "round",
+        "shape": "circle",
         "note": "I think it looks nice.",
         "tags": "dirtywater"
     },
@@ -31,7 +31,7 @@
         "city": "London",
         "year": 2012,
         "color": "purple",
-        "shape": "round",
+        "shape": "circle",
         "note": "It makes me feel dizzy.",
         "tags": "dirtywater"
     },
@@ -43,7 +43,7 @@
         "city": "London",
         "year": 2012,
         "color": "purple",
-        "shape": "round",
+        "shape": "circle",
         "note": "DUREY? Is that a clowns name?",
         "tags": ""
     },
@@ -55,7 +55,7 @@
         "city": "London",
         "year": 2012,
         "color": "purple",
-        "shape": "round",
+        "shape": "circle",
         "note": "Locking yourself under a manhole isn't a funny idea to me.",
         "tags": ""
     },
@@ -67,7 +67,7 @@
         "city": "London",
         "year": 2012,
         "color": "grey",
-        "shape": "round",
+        "shape": "circle",
         "note": "I hope there is some money under this, or I'd be very disappointed.",
         "tags": "logo, ATM"
     },
@@ -79,7 +79,7 @@
         "city": "Umea",
         "year": 2013,
         "color": "orange",
-        "shape": "round",
+        "shape": "circle",
         "note": "Go see the world.",
         "tags": "image, radiation"
     },
@@ -91,7 +91,7 @@
         "city": "Umea",
         "year": 2013,
         "color": "purple",
-        "shape": "round",
+        "shape": "circle",
         "note": "It looks like one of those propagnada posters…",
         "tags": "image"
     },
@@ -103,7 +103,7 @@
         "city": "Umea",
         "year": 2013,
         "color": "purple",
-        "shape": "round",
+        "shape": "circle",
         "note": "That pattern is subtle. I like it.",
         "tags": "polkadot, radiation"
     },
@@ -115,7 +115,7 @@
         "city": "Umea",
         "year": 2013,
         "color": "purple",
-        "shape": "round",
+        "shape": "circle",
         "note": "(Big) O (small) K.",
         "tags": "square, circle"
     },
@@ -127,7 +127,7 @@
         "city": "Providence",
         "year": 2013,
         "color": "purple",
-        "shape": "round",
+        "shape": "circle",
         "note": "Will steam come out of it eventually? Should I wait?",
         "tags": "steam, circle"
     },
@@ -139,7 +139,7 @@
         "city": "New York",
         "year": 2013,
         "color": "orange",
-        "shape": "round",
+        "shape": "circle",
         "note": "Warner Cable has Egyptian eyes, I think.",
         "tags": "cable, eye, image"
     },
@@ -151,7 +151,7 @@
         "city": "New York",
         "year": 2012,
         "color": "grey",
-        "shape": "round",
+        "shape": "circle",
         "note": "This one is all over New York City.",
         "tags": "polkadot, radiation"
     },
@@ -163,7 +163,7 @@
         "city": "Ithaca",
         "year": 2012,
         "color": "grey",
-        "shape": "round",
+        "shape": "circle",
         "note": "Why are you so intense?",
         "tags": "lines"
     },
@@ -175,7 +175,7 @@
         "city": "Ithaca",
         "year": 2012,
         "color": "purple",
-        "shape": "round",
+        "shape": "circle",
         "note": "Can you find a cuter manhole cover than this?",
         "tags": "polkadot"
     }
