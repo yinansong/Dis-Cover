@@ -66,7 +66,11 @@ class App < Sinatra::Base
     rss = RSS::Maker.make("atom") do |maker|
       maker.channel.author = "Yinan Song"
       maker.channel.updated = Time.now.to_s
-      maker.channel.about = "/rss"
+      if ENV['RACK_ENV'] == 'development'
+        maker.channel.about = "http://127.0.0.1:9292/rss"
+      else
+        maker.channel.about = "http://aqueous-forest-9034.herokuapp.com/rss"
+      end
       maker.channel.title = "Dis-Cover"
       maker.items.new_item do |item|
         item.link = "/manholecovers/#{id}"
