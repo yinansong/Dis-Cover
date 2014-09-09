@@ -51,9 +51,9 @@ class App < Sinatra::Base
   CLIENT_ID = ENV["FB_CLIENT_ID"]
   APP_SECRET = ENV["FB_APP_SECRET"]
   if ENV['RACK_ENV'] == 'development'
-    REDIRECT_URI = "http://aqueous-forest-9034.herokuapp.com/oauth_callback"
-  else
     REDIRECT_URI = "http://127.0.0.1:9292/oauth_callback"
+  else
+    REDIRECT_URI = "http://aqueous-forest-9034.herokuapp.com/oauth_callback"
   end
 
   #######################
