@@ -16,6 +16,7 @@ end
 
 group :production do
   # gems specific just in the production environment
+  gem 'pry'
 end
 
 group :test do
