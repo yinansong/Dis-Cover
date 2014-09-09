@@ -1,0 +1,8 @@
+<section>
+  <h3>The Whole World is Crazy about Manhole Covers</h3>
+  <ul>
+    <% @tagged_w_manholecover.first(9).each do |manhole_entry| %>
+    <a href="<%= manhole_entry["link"] %>"><img src="<%= manhole_entry["images"]["low_resolution"]["url"] %>" style="width:200px;"></a>
+    <% end %>
+  </ul>
+</section>

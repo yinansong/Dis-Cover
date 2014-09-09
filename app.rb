@@ -6,6 +6,7 @@ require 'uri'
 require 'pry'
 require 'securerandom'
 require 'rss'
+require 'rack/utils'
 
 class App < Sinatra::Base
 
@@ -81,6 +82,13 @@ class App < Sinatra::Base
     redirect to('/')
   end
 
+  get('/blog') do
+    tagged_w_manholecover_all = HTTParty.get("https://api.instagram.com/v1/tags/manhole/media/recent?client_id=a0d18232c4ae42cd8ddb1343a263cd32")
+    @tagged_w_manholecover = tagged_w_manholecover_all["data"]
+      # @tagged_w_manholecover is an array
+    render(:erb, :blog)
+  end
+
   get('/manholecovers/add') do
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     render(:erb, :add)
@@ -135,6 +143,7 @@ class App < Sinatra::Base
     @province_or_state = params["province_or_state"].downcase.split("+").join(" ")
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     @certain_province_or_state_array = @manholes.select do |manhole_entry|
+      # binding.pry if manhole_entry["province_or_state"].nil?
       manhole_entry["province_or_state"].downcase == @province_or_state
     end
     render(:erb, :province_or_state)
@@ -158,7 +167,7 @@ class App < Sinatra::Base
     # 2 things sent back are code & state
     code = params[:code]
     state = params[:state]
-       if session[:state] == state
+        if session[:state] == state
         response = HTTParty.get(
           "https://graph.facebook.com/oauth/access_token",
           :query => {
@@ -171,14 +180,15 @@ class App < Sinatra::Base
             "Accept" => "application/json"
           }
         )
-        session[:access_token] = response.to_s.split("&")[0].split("=")[1]
-      end
+        query_hash = Rack::Utils.parse_nested_query(response)
+        session[:access_token] = query_hash["access_token"]
+       end
     redirect to("/")
   end
 
-  # get('/users') do
-  #   HTTParty.get("https://graph.facebook.com /{user-id}")
-  # end
+  get('/users') do
+    HTTParty.get("https://graph.facebook.com /{user-id}")
+  end
 
   get('/logout') do
     session[:access_token] = nil
@@ -207,7 +217,6 @@ class App < Sinatra::Base
       "city" => params[:city],
       "year" => params[:year],
       "color" => params[:color],
-      "color" => params[:color],
       "shape" => params[:shape],
       "note" => params[:note],
       "tags" => params[:tags],
@@ -222,6 +231,13 @@ class App < Sinatra::Base
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     @id = params[:id]
     @chosen_manhole = JSON.parse($redis.get("manholes:#{@id}"))
+    color = @chosen_manhole["color"]
+    manholes_of_same_color = @manholes.select do |manhole_entry|
+      manhole_entry["color"] == "#{color}"
+    end
+    @random_manhole_of_same_color1 = manholes_of_same_color.sample
+    @random_manhole_of_same_color2 = manholes_of_same_color.sample
+    @random_manhole_of_same_color3 = manholes_of_same_color.sample
     render(:erb, :detail)
   end
 
@@ -269,7 +285,7 @@ class App < Sinatra::Base
       "id" => index,
     }
     $redis.set("manholes:#{index}", new_manhole.to_json)
-    redirect to('/')
+    binding.pry
   end
 
 end
