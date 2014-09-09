@@ -259,7 +259,7 @@ class App < Sinatra::Base
 
     #for a sample of all the manhole covers
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
-    @manhole_samples = @manholes.sample(10)
+    @manhole_samples = @manholes.sample(20)
 
     #for the data in the summary line
     @cities = @manholes.map do |manhole_entry|
