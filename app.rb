@@ -179,6 +179,7 @@ class App < Sinatra::Base
           :query => {
             :client_id => CLIENT_ID,
             :client_secret => APP_SECRET,
+            :app_id => CLIENT_ID,
             :code => code,
             :redirect_uri => REDIRECT_URI
           },
