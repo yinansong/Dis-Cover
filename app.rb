@@ -71,6 +71,16 @@ class App < Sinatra::Base
   # puts rss
   # end
 
+  # Error Handling
+  not_found do
+    'This is nowhere to be found.'
+    redirect to('/')
+  end
+  error 405 do
+    'Access forbidden'
+    redirect to('/')
+  end
+
   get('/manholecovers/add') do
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     render(:erb, :add)
@@ -110,6 +120,33 @@ class App < Sinatra::Base
       manhole_entry["shape"] == @shape
     end
     render(:erb, :shape)
+  end
+
+  get('/country/:country') do
+    @country = params[:country].downcase
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @certain_country_array = @manholes.select do |manhole_entry|
+      manhole_entry["country"].downcase == @country
+    end
+    render(:erb, :country)
+  end
+
+  get('/province_or_state/:province_or_state') do
+    @province_or_state = params["province_or_state"].downcase.split("+").join(" ")
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @certain_province_or_state_array = @manholes.select do |manhole_entry|
+      manhole_entry["province_or_state"].downcase == @province_or_state
+    end
+    render(:erb, :province_or_state)
+  end
+
+  get('/city/:city') do
+    @city = params[:city].downcase
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @certain_city_array = @manholes.select do |manhole_entry|
+      manhole_entry["city"].downcase == @city
+    end
+    render(:erb, :city)
   end
 
   get('/about') do
