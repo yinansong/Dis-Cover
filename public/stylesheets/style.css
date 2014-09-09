@@ -514,6 +514,7 @@ p#meta_location {
 #menu_right {
   position: fixed;
   right: 25px;
+  top: 10px;
   padding: 16px 10px;
   z-index: 999;
 }
@@ -521,4 +522,8 @@ p#meta_location {
 #related_image_part {
   position: relative;
   margin-top: -195px;
+}
+
+.choice {
+  font-family: 'Lato', sans-serif;
 }

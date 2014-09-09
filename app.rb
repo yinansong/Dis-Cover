@@ -5,6 +5,7 @@ require 'json'
 require 'uri'
 require 'pry'
 require 'securerandom'
+require 'rss'
 
 class App < Sinatra::Base
 
@@ -54,56 +55,78 @@ class App < Sinatra::Base
   # Routes
   #######################
 
-  get('/add') do
+
+  # get('/rss') do
+  #   rss = RSS::Maker.make("atom") do |maker|
+  #     maker.channel.author = "matz"
+  #     maker.channel.updated = Time.now.to_s
+  #     maker.channel.about = "http://www.ruby-lang.org/en/feeds/news.rss"
+  #     maker.channel.title = "Dis-Cover"
+  #     maker.items.new_item do |item|
+  #       item.link = "http://www.ruby-lang.org/en/news/2010/12/25/ruby-1-9-2-p136-is-released/"
+  #       item.title = "Ruby 1.9.2-p136 is released"
+  #       item.updated = Time.now.to_s
+  #     end
+  #   end
+  # puts rss
+  # end
+
+  get('/manholecovers/add') do
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     render(:erb, :add)
   end
 
   get('/about') do
-    binding.pry
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     render(:erb, :about)
   end
 
   get('/oauth_callback') do
     # 2 things sent back are code & state
-    code = params["code"]
-    state = params["state"]
-    if session[:state] == state
-      response = HTTParty.post(
-        "https://graph.facebook.com/oauth/access_token",
-        :headers => {
-          "Accept" => "application/json"
-        },
-        :body => {
-          :client_id => CLIENT_ID,
-          :client_secret => APP_SECRET,
-          :code => code,
-          :redirect_uri => REDIRECT_URI
-        }
-      )
-      session[:access_token] = response["access_token"]
-    end
+    code = params[:code]
+    state = params[:state]
+      # if session[:state] == state
+        response = HTTParty.get(
+          "https://graph.facebook.com/oauth/access_token",
+          :query => {
+            :client_id => CLIENT_ID,
+            :client_secret => APP_SECRET,
+            :code => code,
+            :redirect_uri => REDIRECT_URI
+          },
+          :headers => {
+            "Accept" => "application/json"
+          }
+        )
+        session[:access_token] = response["access_token"]
+        binding.pry
+      # end
     redirect to("/")
   end
 
-  get('logout') do
+  get('/users') do
+    HTTParty.get("https://graph.facebook.com /{user-id}")
+  end
+
+  get('/logout') do
     session[:access_token] = nil
     redirect to("/")
   end
 
   # delete a manhole cover entry
-  get('/:id/delete') do
+  get('/manholecovers/:id/delete') do
     @id = params[:id]
     $redis.del("manholes:#{@id}")
-    redirect to("/")
+    redirect to("/manholecovers")
   end
 
   # edit a manhole cover entry
-  get('/:id/edit') do
+  get('/manholecovers/:id/edit') do
     @id = params[:id]
     @manhole = JSON.parse($redis.get("manholes:#{@id}"))
     render(:erb, :edit)
   end
-  put('/:id') do
+  put('/manholecovers/:id') do
     @id = params[:id]
     updated_manhole = {
       "img" => params[:img],
@@ -119,17 +142,22 @@ class App < Sinatra::Base
       "id" => @id
     }
     $redis.set("manholes:#{@id}", updated_manhole.to_json)
-    redirect to("/#{@id}")
+    redirect to("/manholecovers/#{@id}")
   end
 
   # see a single manhole for details
-  get('/:id') do
+  get('/manholecovers/:id') do
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     @id = params[:id]
     @chosen_manhole = JSON.parse($redis.get("manholes:#{@id}"))
     render(:erb, :detail)
   end
 
   get('/') do
+    redirect to('/manholecovers')
+  end
+
+  get('/manholecovers') do
     # for login with facebook
     fb_base_url = "https://www.facebook.com/dialog/oauth"
     state = SecureRandom.urlsafe_base64
@@ -151,7 +179,7 @@ class App < Sinatra::Base
   end
 
   # add a new manhole cover
-  post('/') do
+  post('/manholecovers') do
     index = $redis.incr("manhole:index")
     new_manhole = {
       "img" => params[:img],
