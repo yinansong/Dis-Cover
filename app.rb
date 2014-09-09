@@ -83,9 +83,13 @@ class App < Sinatra::Base
   end
 
   get('/blog') do
+    # instagram feed part
     tagged_w_manholecover_all = HTTParty.get("https://api.instagram.com/v1/tags/manhole/media/recent?client_id=a0d18232c4ae42cd8ddb1343a263cd32")
     @tagged_w_manholecover = tagged_w_manholecover_all["data"]
       # @tagged_w_manholecover is an array
+
+    # show all the blogposts
+
     render(:erb, :blog)
   end
 
