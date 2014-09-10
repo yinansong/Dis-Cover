@@ -188,10 +188,10 @@ class App < Sinatra::Base
   end
 
   get('/country/:country') do
-    @country = params[:country].downcase
+    @country = params[:country]
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     @certain_country_array = @manholes.select do |manhole_entry|
-      manhole_entry["country"].downcase == @country
+      manhole_entry["country"] == @country
     end
     render(:erb, :country)
   end
