@@ -223,23 +223,23 @@ class App < Sinatra::Base
     # 2 things sent back are code & state
     code = params[:code]
     state = params[:state]
-        if session[:state] == state
-        response = HTTParty.get(
-          "https://graph.facebook.com/oauth/access_token",
-          :query => {
-            :client_id => CLIENT_ID,
-            :client_secret => APP_SECRET,
-            :app_id => CLIENT_ID,
-            :code => code,
-            :redirect_uri => REDIRECT_URI
-          },
-          :headers => {
-            "Accept" => "application/json"
-          }
-        )
-        query_hash = Rack::Utils.parse_nested_query(response)
-        session[:access_token] = query_hash["access_token"]
-       end
+      if session[:state] == state
+      response = HTTParty.get(
+        "https://graph.facebook.com/oauth/access_token",
+        :query => {
+          :client_id => CLIENT_ID,
+          :client_secret => APP_SECRET,
+          :app_id => CLIENT_ID,
+          :code => code,
+          :redirect_uri => REDIRECT_URI
+        },
+        :headers => {
+          "Accept" => "application/json"
+        }
+      )
+      query_hash = Rack::Utils.parse_nested_query(response)
+      session[:access_token] = query_hash["access_token"]
+     end
     redirect to("/")
   end
 
@@ -249,7 +249,7 @@ class App < Sinatra::Base
 
   get('/logout') do
     session[:access_token] = nil
-    # redirect to("/")
+    redirect to("/")
   end
 
   # delete a manhole cover entry
