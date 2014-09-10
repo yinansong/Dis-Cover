@@ -3,7 +3,7 @@
     {
         "img": "images/IMG_0941.png",
         "country": "China",
-        "province_or_state": "Sichuan",
+        "state_or_province": "Sichuan",
         "city": "Chengdu",
         "year": 2013,
         "color": "grey",
@@ -15,7 +15,7 @@
     {
         "img": "images/IMG_0948.png",
         "country": "China",
-        "province_or_state": "Sichuan",
+        "state_or_province": "Sichuan",
         "city": "Chengdu",
         "year": 2013,
         "color": "grey",
@@ -27,7 +27,7 @@
     {
         "img": "images/IMG_1457.png",
         "country": "UK",
-        "province_or_state": "N.A.",
+        "state_or_province": "N.A.",
         "city": "London",
         "year": 2012,
         "color": "blue",
@@ -39,7 +39,7 @@
     {
         "img": "images/IMG_1459.png",
         "country": "UK",
-        "province_or_state": "N.A.",
+        "state_or_province": "N.A.",
         "city": "London",
         "year": 2012,
         "color": "purple",
@@ -51,7 +51,7 @@
     {
         "img": "images/IMG_1461.png",
         "country": "UK",
-        "province_or_state": "N.A.",
+        "state_or_province": "N.A.",
         "city": "London",
         "year": 2012,
         "color": "purple",
@@ -63,7 +63,7 @@
     {
         "img": "images/IMG_2366.png",
         "country": "Sweden",
-        "province_or_state": "Vasterbotten",
+        "state_or_province": "Vasterbotten",
         "city": "Umea",
         "year": 2013,
         "color": "orange",
@@ -75,7 +75,7 @@
     {
         "img": "images/IMG_2373.png",
         "country": "Sweden",
-        "province_or_state": "Vasterbotten",
+        "state_or_province": "Vasterbotten",
         "city": "Umea",
         "year": 2013,
         "color": "orange",
@@ -87,7 +87,7 @@
     {
         "img": "images/IMG_2407.png",
         "country": "Sweden",
-        "province_or_state": "Vasterbotten",
+        "state_or_province": "Vasterbotten",
         "city": "Umea",
         "year": 2013,
         "color": "purple",
@@ -99,7 +99,7 @@
     {
         "img": "images/IMG_2412.png",
         "country": "Sweden",
-        "province_or_state": "Vasterbotten",
+        "state_or_province": "Vasterbotten",
         "city": "Umea",
         "year": 2013,
         "color": "purple",
@@ -111,7 +111,7 @@
     {
         "img": "images/IMG_2987.png",
         "country": "USA",
-        "province_or_state": "Rhode Island",
+        "state_or_province": "Rhode Island",
         "city": "Providence",
         "year": 2013,
         "color": "purple",
@@ -123,7 +123,7 @@
     {
         "img": "images/IMG_3294.png",
         "country": "USA",
-        "province_or_state": "New York",
+        "state_or_province": "New York",
         "city": "New York",
         "year": 2013,
         "color": "orange",
@@ -135,7 +135,7 @@
     {
         "img": "images/IMG_2079.png",
         "country": "USA",
-        "province_or_state": "New York",
+        "state_or_province": "New York",
         "city": "New York",
         "year": 2012,
         "color": "grey",
@@ -147,7 +147,7 @@
     {
         "img": "images/IMG_1144.png",
         "country": "USA",
-        "province_or_state": "New York",
+        "state_or_province": "New York",
         "city": "Ithaca",
         "year": 2012,
         "color": "grey",
@@ -159,7 +159,7 @@
     {
         "img": "images/IMG_1046.png",
         "country": "USA",
-        "province_or_state": "New York",
+        "state_or_province": "New York",
         "city": "Ithaca",
         "year": 2012,
         "color": "purple",
@@ -171,7 +171,7 @@
     {
         "img": "images/IMG_1042.png",
         "country": "USA",
-        "province_or_state": "New York",
+        "state_or_province": "New York",
         "city": "Ithaca",
         "year": 2012,
         "color": "brown",
@@ -183,7 +183,7 @@
     {
         "img": "images/IMG_1033.png",
         "country": "USA",
-        "province_or_state": "New York",
+        "state_or_province": "New York",
         "city": "Ithaca",
         "year": 2012,
         "color": "yellow",
@@ -195,7 +195,7 @@
     {
         "img": "images/IMG_2320.png",
         "country": "Denmark",
-        "province_or_state": "Hovedstaden",
+        "state_or_province": "Hovedstaden",
         "city": "Copenhagen",
         "year": 2013,
         "color": "brown",
@@ -207,7 +207,7 @@
     {
         "img": "images/IMG_2739.png",
         "country": "Denmark",
-        "province_or_state": "Hovedstaden",
+        "state_or_province": "Hovedstaden",
         "city": "Copenhagen",
         "year": 2013,
         "color": "purple",
@@ -219,7 +219,7 @@
     {
         "img": "images/IMG_2260.png",
         "country": "Denmark",
-        "province_or_state": "Hovedstaden",
+        "state_or_province": "Hovedstaden",
         "city": "Copenhagen",
         "year": 2013,
         "color": "purple",
@@ -231,7 +231,7 @@
     {
         "img": "images/IMG_2267.png",
         "country": "Denmark",
-        "province_or_state": "Hovedstaden",
+        "state_or_province": "Hovedstaden",
         "city": "Copenhagen",
         "year": 2013,
         "color": "purple",
@@ -243,7 +243,7 @@
     {
         "img": "images/IMG_2268.png",
         "country": "Denmark",
-        "province_or_state": "Hovedstaden",
+        "state_or_province": "Hovedstaden",
         "city": "Copenhagen",
         "year": 2013,
         "color": "grey",
@@ -255,7 +255,7 @@
     {
         "img": "images/IMG_2787.png",
         "country": "Denmark",
-        "province_or_state": "Hovedstaden",
+        "state_or_province": "Hovedstaden",
         "city": "Copenhagen",
         "year": 2013,
         "color": "orange",
@@ -267,7 +267,7 @@
     {
         "img": "images/IMG_2796.png",
         "country": "Denmark",
-        "province_or_state": "Hovedstaden",
+        "state_or_province": "Hovedstaden",
         "city": "Copenhagen",
         "year": 2012,
         "color": "purple",
@@ -279,7 +279,7 @@
     {
         "img": "images/617130_10151158396033925_1814761434_o.png",
         "country": "Sweden",
-        "province_or_state": "Hovedstaden",
+        "state_or_province": "Hovedstaden",
         "city": "Stockholm",
         "year": 2013,
         "color": "blue",

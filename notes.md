@@ -5,7 +5,7 @@
       <ul>
       <% manhole_entry %>
         <img src="<%= manhole_entry["img"] %>" style="width:200px;">
-        <li><%= manhole_entry["city"] %>, <%= manhole_entry["province_or_state"] %>, <%= manhole_entry["country"] %></li>
+        <li><%= manhole_entry["city"] %>, <%= manhole_entry["state_or_province"] %>, <%= manhole_entry["country"] %></li>
         <li><%= manhole_entry["year"] %></li>
         <li><%= manhole_entry["color"] %></li>3
         <li><%= manhole_entry["shape"] %></li>
@@ -22,7 +22,7 @@
 
 ### Just in case I want the old meta-box back
     <div id="meta_box<%= index %>" class="meta_box">
-      <p class="meta_text" id="meta_location"><%= manhole_entry["city"] %>, <%= manhole_entry["province_or_state"] %>, <%= manhole_entry["country"] %></p><br>
+      <p class="meta_text" id="meta_location"><%= manhole_entry["city"] %>, <%= manhole_entry["state_or_province"] %>, <%= manhole_entry["country"] %></p><br>
       <p class="meta_text" id="meta_year"><%= manhole_entry["year"] %></p><br>
       <p class="meta_text" id="meta_info"><%= manhole_entry["note"] %></p>
     </div>
