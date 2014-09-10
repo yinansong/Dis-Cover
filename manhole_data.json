@@ -61,18 +61,6 @@
     },
 
     {
-        "img": "images/IMG_1466.png",
-        "country": "UK",
-        "province_or_state": "N.A.",
-        "city": "London",
-        "year": 2012,
-        "color": "grey",
-        "shape": "circle",
-        "note": "I hope there is some money under this, or I'd be very disappointed.",
-        "tags": "logo, ATM, pattern"
-    },
-
-    {
         "img": "images/IMG_2366.png",
         "country": "Sweden",
         "province_or_state": "Vasterbotten",
