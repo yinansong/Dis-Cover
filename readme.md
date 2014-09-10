@@ -8,15 +8,13 @@ Dis-Cover is a platform for users to upload images and information of manhole co
 In All Environments: Sinatra(1.4.5), redis(3.1.0), httparty, rack
 In Development Environment: Pry, Shotgun
 In Test Environment: Rspec
-
-##APIs Used
+###APIs Used
 Facebook, Instagram
 
-##Instructions for for downloading the code and running it on localhost:
-
-##Instructions for running the accompanying test suite
-
-##Deploy the application to Heroku
+##Instructions
+Localhost: For Facebook login, make sure you have the `CLIENT_ID` and `APP_SECRET` set in the bash profile as `FB_CLIENT_ID` and `FB_APP_SECRET`.
+Heroku: For Facebook login, make sure you have the `CLIENT_ID` and `APP_SECRET` set in the heroku variable section as `FB_CLIENT_ID` and `FB_APP_SECRET`.
 
 
-##Write a blog post about some aspect of the experience.
+##Test Suite
+The test suite is still under development. Please come back to check soon.
