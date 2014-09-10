@@ -5,9 +5,9 @@ Dis-Cover is a platform for users to upload images and information of manhole co
 
 ##Technology
 ###Gems Used
-In All Environments: Sinatra(1.4.5), redis(3.1.0), httparty, rack
-In Development Environment: Pry, Shotgun
-In Test Environment: Rspec
+In All Environments: Sinatra(1.4.5), redis(3.1.0), httparty, rack.
+In Development Environment: Pry, Shotgun.
+In Test Environment: Rspec.
 ###APIs Used
 Facebook, Instagram
 
