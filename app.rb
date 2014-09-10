@@ -81,29 +81,22 @@ class App < Sinatra::Base
 
   get('/rss') do
     content_type 'text/xml'
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    data_size = @manholes.size
+    @manhole_samples = @manholes.sample(20)
 
-    # # for login with facebook
-    # fb_base_url = "https://www.facebook.com/dialog/oauth"
-    # state = SecureRandom.urlsafe_base64
-    # session[:state] = state
-    # scope = "public_profile"
-    # @fb_login_url = "#{fb_base_url}?client_id=#{CLIENT_ID}&redirect_uri=#{REDIRECT_URI}&state=#{state}&scope=#{scope}"
+    #for the data in the summary line
+    @cities = @manholes.map do |manhole_entry|
+      manhole_entry["city"].downcase
+    end
+    @number_of_cities_uniq = @cities.uniq.size
 
-    # #for a sample of all the manhole covers
-    manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
-    # @manhole_samples = @manholes.sample(20)
+    @countries = @manholes.map do |manhole_entry|
+      manhole_entry["country"]
+    end
+    @number_of_countries_uniq = @countries.uniq.size
+    render(:erb, :index)
 
-    # #for the data in the summary line
-    # @cities = @manholes.map do |manhole_entry|
-    #   manhole_entry["city"].downcase
-    # end
-    # @number_of_cities_uniq = @cities.uniq.size
-    # @countries = @manholes.map do |manhole_entry|
-    #   manhole_entry["country"]
-    # end
-    # @number_of_countries_uniq = @countries.uniq.size
-    # render(:erb, :index)
-    # binding.pry
     rss = RSS::Maker.make("atom") do |maker|
       maker.channel.author = "Yinan Song"
       maker.channel.updated = Time.now.to_s
@@ -114,11 +107,18 @@ class App < Sinatra::Base
       end
       maker.channel.title = "Dis-Cover"
 
-      manholes.each do |manhole|
+      maker.items.new_item do |item|
+        item.id = "summary"
+        item.link = "/manholecovers"
+        item.title = "#{data_size} manhole covers from #{@number_of_cities_uniq} cities of #{@number_of_countries_uniq} countries currently"
+        item.updated = Time.now.to_s
+      end
+
+      @manholes.each do |manhole|
         maker.items.new_item do |item|
           item.id = manhole["id"].to_s
           item.link = "/manholecovers/#{manhole["id"]}"
-          item.title = "Just another manhole cover!"
+          item.title = "No.#{manhole["id"]}: #{manhole["year"]}, #{manhole["city"]}, #{manhole["state_or_province"]}, #{manhole["country"]}"
           item.updated = Time.now.to_s
         end
       end
