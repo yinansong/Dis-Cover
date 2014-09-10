@@ -16,7 +16,8 @@ Dis-Cover is a platform for users to upload images and information of manhole co
 * Localhost
 For Facebook login, make sure you have the `CLIENT_ID` and `APP_SECRET` set in the bash profile as `FB_CLIENT_ID` and `FB_APP_SECRET`.
 * Heroku: 
-For Facebook login, make sure you have the `CLIENT_ID` and `APP_SECRET` set in the heroku variable section as `FB_CLIENT_ID` and `FB_APP_SECRET`.
+    - For Facebook login, make sure you have the `CLIENT_ID` and `APP_SECRET` set in the heroku variable section as `FB_CLIENT_ID` and `FB_APP_SECRET`.
+    - Make sure to add Redistogo as an addon in the Heroku dashboard section.
 
 ##Test Suite
 The test suite is still under development. Please come back to check soon.
