@@ -534,3 +534,27 @@ p#meta_location {
   right: 112px;
   z-index: 999;
 }
+
+.list-of-a-feature {
+  padding: 30px 60px;
+  margin: 0px;
+  display: block;
+  float: left;
+  list-style: none;
+}
+
+ul.list-of-a-feature li {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  padding: 3px;
+  text-align: center;
+}
+
+ul.list-of-a-feature img {
+  height: 200px;
+  padding: 5px;
+}
+
+.clear {
+  clear: both;
+}
