@@ -17,7 +17,14 @@
         </p>
         <br>
         <p class="meta_text" id="meta_info">Note:&nbsp;<span class="meta_content"><%= @chosen_manhole["note"] %></span></p><br>
-        <p class="meta_text">Tags:&nbsp;<span class="meta_content"><%= @chosen_manhole["tags"] %></span></p>
+        <p class="meta_text">
+          Tags:&nbsp;
+          <span class="meta_content">
+            <% @array_of_tags.each do |tag|%>
+              <a href="/tag/<%= tag %>">#<%= tag %>&nbsp;</a>
+            <% end %>
+          </span>
+        </p>
         <br>
         <br>
         <br>
