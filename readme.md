@@ -1,17 +1,22 @@
-###Project Name
-Dis-Cover
+##Dis-Cover
 
-###Project Description
-Display my manhole collection and sort them in different ways.
+##Project Description
+Dis-Cover is a platform for users to upload images and information of manhole covers in order to organize/sort them based on different characters and share them with other people interested in manhole covers.
 
+##Technology
 ###Gems Used
-Sinatra, Redis, Shotgun, Rackup, Rspec, JSON, pry, etc.
+#### In All Environments: Sinatra(1.4.5), redis(3.1.0), httparty, rack
+#### In Development Environment: Pry, Shotgun
+#### In Test Environment: Rspec
 
-###Instructions for for downloading the code and running it on localhost:
+##APIs Used
+Facebook, Instagram
 
-###Instructions for running the accompanying test suite
+##Instructions for for downloading the code and running it on localhost:
 
-###Deploy the application to Heroku
+##Instructions for running the accompanying test suite
+
+##Deploy the application to Heroku
 
 
-###Write a blog post about some aspect of the experience.
+##Write a blog post about some aspect of the experience.
