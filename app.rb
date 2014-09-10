@@ -79,52 +79,52 @@ class App < Sinatra::Base
     }.to_json
   end
 
-  # get('/rss') do
-  #   content_type 'text/xml'
+  get('/rss') do
+    content_type 'text/xml'
 
-  #   # # for login with facebook
-  #   # fb_base_url = "https://www.facebook.com/dialog/oauth"
-  #   # state = SecureRandom.urlsafe_base64
-  #   # session[:state] = state
-  #   # scope = "public_profile"
-  #   # @fb_login_url = "#{fb_base_url}?client_id=#{CLIENT_ID}&redirect_uri=#{REDIRECT_URI}&state=#{state}&scope=#{scope}"
+    # # for login with facebook
+    # fb_base_url = "https://www.facebook.com/dialog/oauth"
+    # state = SecureRandom.urlsafe_base64
+    # session[:state] = state
+    # scope = "public_profile"
+    # @fb_login_url = "#{fb_base_url}?client_id=#{CLIENT_ID}&redirect_uri=#{REDIRECT_URI}&state=#{state}&scope=#{scope}"
 
-  #   # #for a sample of all the manhole covers
-  #   manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
-  #   # @manhole_samples = @manholes.sample(20)
+    # #for a sample of all the manhole covers
+    manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    # @manhole_samples = @manholes.sample(20)
 
-  #   # #for the data in the summary line
-  #   # @cities = @manholes.map do |manhole_entry|
-  #   #   manhole_entry["city"].downcase
-  #   # end
-  #   # @number_of_cities_uniq = @cities.uniq.size
-  #   # @countries = @manholes.map do |manhole_entry|
-  #   #   manhole_entry["country"]
-  #   # end
-  #   # @number_of_countries_uniq = @countries.uniq.size
-  #   # render(:erb, :index)
-  #   # binding.pry
-  #   rss = RSS::Maker.make("atom") do |maker|
-  #     maker.channel.author = "Yinan Song"
-  #     maker.channel.updated = Time.now.to_s
-  #     if ENV['RACK_ENV'] == 'development'
-  #       maker.channel.about = "http://127.0.0.1:9292/rss"
-  #     else
-  #       maker.channel.about = "http://aqueous-forest-9034.herokuapp.com/rss"
-  #     end
-  #     maker.channel.title = "Dis-Cover"
+    # #for the data in the summary line
+    # @cities = @manholes.map do |manhole_entry|
+    #   manhole_entry["city"].downcase
+    # end
+    # @number_of_cities_uniq = @cities.uniq.size
+    # @countries = @manholes.map do |manhole_entry|
+    #   manhole_entry["country"]
+    # end
+    # @number_of_countries_uniq = @countries.uniq.size
+    # render(:erb, :index)
+    # binding.pry
+    rss = RSS::Maker.make("atom") do |maker|
+      maker.channel.author = "Yinan Song"
+      maker.channel.updated = Time.now.to_s
+      if ENV['RACK_ENV'] == 'development'
+        maker.channel.about = "http://127.0.0.1:9292/rss"
+      else
+        maker.channel.about = "http://aqueous-forest-9034.herokuapp.com/rss"
+      end
+      maker.channel.title = "Dis-Cover"
 
-  #     manholes.each do |manhole|
-  #       maker.items.new_item do |item|
-  #         item.id = manhole["id"].to_s
-  #         item.link = "/manholecovers/#{manhole["id"]}"
-  #         item.title = "Just another manhole cover!"
-  #         item.updated = Time.now.to_s
-  #       end
-  #     end
-  #   end
-  #   rss.to_s
-  # end
+      manholes.each do |manhole|
+        maker.items.new_item do |item|
+          item.id = manhole["id"].to_s
+          item.link = "/manholecovers/#{manhole["id"]}"
+          item.title = "Just another manhole cover!"
+          item.updated = Time.now.to_s
+        end
+      end
+    end
+    rss.to_s
+  end
 
   # Error Handling
   not_found do
