@@ -196,13 +196,13 @@ class App < Sinatra::Base
     render(:erb, :country)
   end
 
-  get('/province_or_state/:province_or_state') do
-    @province_or_state = params["province_or_state"].downcase.split("+").join(" ")
+  get('/state_or_province/:state_or_province') do
+    @state_or_province = params["state_or_province"].downcase.split("+").join(" ")
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
-    @certain_province_or_state_array = @manholes.select do |manhole_entry|
-      manhole_entry["province_or_state"].downcase == @province_or_state
+    @certain_state_or_province_array = @manholes.select do |manhole_entry|
+      manhole_entry["state_or_province"].downcase == @state_or_province
     end
-    render(:erb, :province_or_state)
+    render(:erb, :state_or_province)
   end
 
   get('/city/:city') do

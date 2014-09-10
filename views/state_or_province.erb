@@ -1,11 +1,11 @@
 <section>
-  <h3>Manhole Covers in the Province/State of <%= @province_or_state.capitalize %></h3>
+  <h3>Manhole Covers in the Province/State of <%= @state_or_province.capitalize %></h3>
   <ul>
-  <% @certain_province_or_state_array.each_with_index do |manhole_entry, index| %>
+  <% @certain_state_or_province_array.each_with_index do |manhole_entry, index| %>
       <li>
         <ul>
           <a href="/manholecovers/<%= manhole_entry["id"] %>">Manhole Cover <%= index + 1 %>:</a>
-          <li>Location: <%= manhole_entry["city"] %>, <%= manhole_entry["province_or_state"] %>, <%= manhole_entry["country"] %></li>
+          <li>Location: <%= manhole_entry["city"] %>, <%= manhole_entry["state_or_province"] %>, <%= manhole_entry["country"] %></li>
           <li>Year: <%= manhole_entry["year"] %></li>
           <li>ID Number: <%= manhole_entry["id"] %></li>
         </ul>
