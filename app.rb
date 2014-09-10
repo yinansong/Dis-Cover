@@ -52,7 +52,7 @@ class App < Sinatra::Base
   APP_SECRET = ENV["FB_APP_SECRET"]
   if ENV['RACK_ENV'] == 'development'
     REDIRECT_URI = "http://127.0.0.1:9292/oauth_callback"
-  else
+  elsif ENV['RACK_ENV'] == 'production'
     REDIRECT_URI = "http://aqueous-forest-9034.herokuapp.com/oauth_callback"
   end
 
@@ -109,7 +109,7 @@ class App < Sinatra::Base
       maker.channel.updated = Time.now.to_s
       if ENV['RACK_ENV'] == 'development'
         maker.channel.about = "http://127.0.0.1:9292/rss"
-      else
+      elsif ENV['RACK_ENV'] == 'production'
         maker.channel.about = "http://aqueous-forest-9034.herokuapp.com/rss"
       end
       maker.channel.title = "Dis-Cover"
@@ -249,7 +249,7 @@ class App < Sinatra::Base
 
   get('/logout') do
     session[:access_token] = nil
-    redirect to("/")
+    # redirect to("/")
   end
 
   # delete a manhole cover entry
