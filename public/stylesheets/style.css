@@ -548,6 +548,7 @@ ul.list-of-a-feature li {
   font-size: 14px;
   padding: 3px;
   text-align: center;
+  width: 190px;
 }
 
 ul.list-of-a-feature img {
