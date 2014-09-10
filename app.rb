@@ -60,6 +60,25 @@ class App < Sinatra::Base
   # Routes
   #######################
 
+  get('/as/:id') do
+    content_type :json
+    @id = params[:id]
+    @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
+    @chosen_manhole = JSON.parse($redis.get("manholes:#{@id}"))
+    {
+      "img" => @chosen_manhole["img"],
+      "country" => @chosen_manhole["country"],
+      "state_or_province" => @chosen_manhole["state_or_province"],
+      "city" => @chosen_manhole["city"],
+      "year" => @chosen_manhole["year"],
+      "color" => @chosen_manhole["color"],
+      "shape" => @chosen_manhole["shape"],
+      "note" => @chosen_manhole["note"],
+      "tags" => @chosen_manhole["tags"],
+      "id" => @id
+    }.to_json
+    binding.pry
+  end
 
   get('/rss/:id') do
     id = params[:id]
