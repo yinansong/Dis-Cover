@@ -1,64 +1,6 @@
-require 'httparty'
-require 'sinatra/base'
-require 'redis'
-require 'json'
-require 'uri'
-require 'pry' if ENV['RACK_ENV'] == 'development'
-require 'securerandom'
-require 'rss'
-require 'rack/utils'
+require './application_controller'
 
-class App < Sinatra::Base
-
-  ########################
-  # Configuration
-  ########################
-
-  configure do
-    enable :logging
-    enable :method_override
-    enable :sessions
-    # set the secret yourself, so all your application instances share it:
-    set :session_secret, 'super secret'
-
-    uri = URI.parse(ENV["REDISTOGO_URL"])
-    $redis = Redis.new({:host => uri.host,
-                        :port => uri.port,
-                        :password => uri.password})
-    $redis.flushdb
-    $redis.set("manhole:index", 0)
-    ruby_object = JSON.parse(File.read('manhole_data.json'))
-    ruby_object["manhole_data"].each do |manhole_entry|
-      index = $redis.incr("manhole:index")
-      manhole_entry[:id] = index
-      $redis.set("manholes:#{index}", manhole_entry.to_json)
-    end
-  end
-
-  before do
-    logger.info "Request Headers: #{headers}"
-    logger.warn "Params: #{params}"
-  end
-
-  after do
-    logger.info "Response Headers: #{response.headers}"
-  end
-
-  #######################
-  # API
-  #######################
-
-  CLIENT_ID = ENV["FB_CLIENT_ID"]
-  APP_SECRET = ENV["FB_APP_SECRET"]
-  if ENV['RACK_ENV'] == 'development'
-    REDIRECT_URI = "http://127.0.0.1:9292/oauth_callback"
-  elsif ENV['RACK_ENV'] == 'production'
-    REDIRECT_URI = "http://aqueous-forest-9034.herokuapp.com/oauth_callback"
-  end
-
-  #######################
-  # Routes
-  #######################
+class App < ApplicationController
 
   get('/as/:id') do
     content_type :json
@@ -128,11 +70,11 @@ class App < Sinatra::Base
 
   # Error Handling
   not_found do
-    'This is nowhere to be found.'
+    "This is nowhere to be found."
     redirect to('/')
   end
   error 405 do
-    'Access forbidden'
+    "Access forbidden."
     redirect to('/')
   end
 
@@ -155,7 +97,7 @@ class App < Sinatra::Base
     @tagname = params[:tagname]
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     @with_tagname_array = @manholes.select do |manhole_entry|
-      manhole_entry["tags"].split(", ").include?"#{@tagname}"
+      manhole_entry["tags"].split(", ").include?" #{@tagname}"
     end
     render(:erb, :"manholecovers/tag")
   end
@@ -224,22 +166,22 @@ class App < Sinatra::Base
     code = params[:code]
     state = params[:state]
       if session[:state] == state
-      response = HTTParty.get(
-        "https://graph.facebook.com/oauth/access_token",
-        :query => {
-          :client_id => CLIENT_ID,
-          :client_secret => APP_SECRET,
-          :app_id => CLIENT_ID,
-          :code => code,
-          :redirect_uri => REDIRECT_URI
-        },
-        :headers => {
-          "Accept" => "application/json"
-        }
-      )
-      query_hash = Rack::Utils.parse_nested_query(response)
-      session[:access_token] = query_hash["access_token"]
-     end
+        response = HTTParty.get(
+          "https://graph.facebook.com/oauth/access_token",
+          :query => {
+            :client_id => CLIENT_ID,
+            :client_secret => APP_SECRET,
+            :app_id => CLIENT_ID,
+            :code => code,
+            :redirect_uri => REDIRECT_URI
+          },
+          :headers => {
+            "Accept" => "application/json"
+          }
+        )
+        query_hash = Rack::Utils.parse_nested_query(response)
+        session[:access_token] = query_hash["access_token"]
+      end
     redirect to("/")
   end
 
