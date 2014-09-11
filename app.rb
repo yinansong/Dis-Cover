@@ -95,7 +95,7 @@ class App < Sinatra::Base
       manhole_entry["country"]
     end
     @number_of_countries_uniq = @countries.uniq.size
-    render(:erb, :index)
+    render(:erb, :"manholecovers/index")
 
     rss = RSS::Maker.make("atom") do |maker|
       maker.channel.author = "Yinan Song"
@@ -143,12 +143,12 @@ class App < Sinatra::Base
       # @tagged_w_manholecover is an array
 
     # show all the blogposts
-    render(:erb, :blog)
+    render(:erb, :"blogs/blog")
   end
 
   get('/manholecovers/add') do
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
-    render(:erb, :add)
+    render(:erb, :"manholecovers/add")
   end
 
   get('/tag/:tagname') do
@@ -157,7 +157,7 @@ class App < Sinatra::Base
     @with_tagname_array = @manholes.select do |manhole_entry|
       manhole_entry["tags"].split(", ").include?"#{@tagname}"
     end
-    render(:erb, :tag)
+    render(:erb, :"manholecovers/tag")
   end
 
   get('/year/:year') do
@@ -166,7 +166,7 @@ class App < Sinatra::Base
     @same_year_array = @manholes.select do |manhole_entry|
       manhole_entry["year"] == @year
     end
-    render(:erb, :year)
+    render(:erb, :"manholecovers/year")
   end
 
   get('/color/:color') do
@@ -175,7 +175,7 @@ class App < Sinatra::Base
     @certain_color_array = @manholes.select do |manhole_entry|
       manhole_entry["color"] == @color
     end
-    render(:erb, :color)
+    render(:erb, :"manholecovers/color")
   end
 
   get('/shape/:shape') do
@@ -184,7 +184,7 @@ class App < Sinatra::Base
     @certain_shape_array = @manholes.select do |manhole_entry|
       manhole_entry["shape"] == @shape
     end
-    render(:erb, :shape)
+    render(:erb, :"manholecovers/shape")
   end
 
   get('/country/:country') do
@@ -193,7 +193,7 @@ class App < Sinatra::Base
     @certain_country_array = @manholes.select do |manhole_entry|
       manhole_entry["country"] == @country
     end
-    render(:erb, :country)
+    render(:erb, :"manholecovers/country")
   end
 
   get('/state_or_province/:state_or_province') do
@@ -202,7 +202,7 @@ class App < Sinatra::Base
     @certain_state_or_province_array = @manholes.select do |manhole_entry|
       manhole_entry["state_or_province"].downcase == @state_or_province
     end
-    render(:erb, :state_or_province)
+    render(:erb, :"manholecovers/state_or_province")
   end
 
   get('/city/:city') do
@@ -211,7 +211,7 @@ class App < Sinatra::Base
     @certain_city_array = @manholes.select do |manhole_entry|
       manhole_entry["city"].downcase == @city
     end
-    render(:erb, :city)
+    render(:erb, :"manholecovers/city")
   end
 
   get('/about') do
@@ -263,7 +263,7 @@ class App < Sinatra::Base
   get('/manholecovers/:id/edit') do
     @id = params[:id]
     @manhole = JSON.parse($redis.get("manholes:#{@id}"))
-    render(:erb, :edit)
+    render(:erb, :"manholecovers/edit")
   end
   put('/manholecovers/:id') do
     @id = params[:id]
@@ -298,7 +298,7 @@ class App < Sinatra::Base
     @random_manhole_of_same_color1 = manholes_of_same_color.sample
     @random_manhole_of_same_color2 = manholes_of_same_color.sample
     @random_manhole_of_same_color3 = manholes_of_same_color.sample
-    render(:erb, :detail)
+    render(:erb, :"manholecovers/detail")
   end
 
   get('/manholecovers') do
@@ -322,7 +322,7 @@ class App < Sinatra::Base
       manhole_entry["country"]
     end
     @number_of_countries_uniq = @countries.uniq.size
-    render(:erb, :index)
+    render(:erb, :"manholecovers/index")
   end
 
   get('/') do
