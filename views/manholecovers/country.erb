@@ -1,14 +1,8 @@
 <section>
   <h3>Manhole Covers in <%= @country.capitalize %></h3>
-  <% @certain_country_array.each_with_index do |manhole_entry, index| %>
-    <a href="/manholecovers/<%= manhole_entry["id"] %>">
-      <ul class="list-of-a-feature">
-        <li><img src="/<%= manhole_entry["img"] %>"></li>
-        <li><%= manhole_entry["city"] %>, <%= manhole_entry["state_or_province"] %>, <%= manhole_entry["country"] %></li>
-        <li><%= manhole_entry["year"] %></li>
-        <li>No.&nbsp;<%= manhole_entry["id"] %></li>
-      </ul>
-    </a>
+  <% @certain_country_array.each_with_index do |manhole_entry| %>
+    <%= render(:erb, :"manholecovers/_manholecover_list", :locals => {:manhole_entry => manhole_entry}) %>
   <% end %>
   <div class="clear"></div>
 </section>
+

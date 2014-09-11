@@ -97,7 +97,7 @@ class App < ApplicationController
     @tagname = params[:tagname]
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
     @with_tagname_array = @manholes.select do |manhole_entry|
-      manhole_entry["tags"].split(", ").include?" #{@tagname}"
+      manhole_entry["tags"].split(", ").include?"#{@tagname}"
     end
     render(:erb, :"manholecovers/tag")
   end
