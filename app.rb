@@ -143,12 +143,12 @@ class App < Sinatra::Base
       # @tagged_w_manholecover is an array
 
     # show all the blogposts
-    render(:erb, :"blogs/blog")
+    render(:erb, :"blogs/index")
   end
 
   get('/manholecovers/add') do
     @manholes = $redis.keys("*manholes*").map { |manhole| JSON.parse($redis.get(manhole)) }
-    render(:erb, :"manholecovers/add")
+    render(:erb, :"manholecovers/new")
   end
 
   get('/tag/:tagname') do
@@ -298,7 +298,7 @@ class App < Sinatra::Base
     @random_manhole_of_same_color1 = manholes_of_same_color.sample
     @random_manhole_of_same_color2 = manholes_of_same_color.sample
     @random_manhole_of_same_color3 = manholes_of_same_color.sample
-    render(:erb, :"manholecovers/detail")
+    render(:erb, :"manholecovers/show")
   end
 
   get('/manholecovers') do
