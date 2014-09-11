@@ -43,6 +43,6 @@ class ApplicationController < Sinatra::Base
   if ENV['RACK_ENV'] == 'development'
     REDIRECT_URI = "http://127.0.0.1:9292/oauth_callback"
   elsif ENV['RACK_ENV'] == 'production'
-    REDIRECT_URI = "http://aqueous-forest-9034.herokuapp.com/oauth_callback"
+    REDIRECT_URI = "http://dis-cover.herokuapp.com/oauth_callback"
   end
 end

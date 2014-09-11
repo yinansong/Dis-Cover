@@ -45,7 +45,7 @@ class App < ApplicationController
       if ENV['RACK_ENV'] == 'development'
         maker.channel.about = "http://127.0.0.1:9292/rss"
       elsif ENV['RACK_ENV'] == 'production'
-        maker.channel.about = "http://aqueous-forest-9034.herokuapp.com/rss"
+        maker.channel.about = "http://dis-cover.herokuapp.com/rss"
       end
       maker.channel.title = "Dis-Cover"
 
