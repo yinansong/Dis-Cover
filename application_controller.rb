@@ -1,16 +1,20 @@
+require './helpers/application_helper'
+
 class ApplicationController < Sinatra::Base
 
-  ########################
-  # Configuration
-  ########################
+  # Available Helpers
+  include ActionView::Helpers::AssetTagHelper
+  include ActionView::Helpers::DateHelper
+
+  helpers ApplicationHelper
+
+  enable :logging
+  enable :method_override
+  enable :sessions
+  # set the secret yourself, so all your application instances share it:
+  set :session_secret, 'super secret'
 
   configure do
-    enable :logging
-    enable :method_override
-    enable :sessions
-    # set the secret yourself, so all your application instances share it:
-    set :session_secret, 'super secret'
-
     uri = URI.parse(ENV["REDISTOGO_URL"])
     $redis = Redis.new({:host => uri.host,
                         :port => uri.port,

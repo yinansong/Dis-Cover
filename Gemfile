@@ -7,6 +7,7 @@ gem 'sinatra', '1.4.5', require: 'sinatra/base'
 gem 'redis',  '3.1.0'
 gem 'httparty'
 gem 'rack'
+gem 'actionview', '~> 4.1.5', require: "action_view"
 
 # only used in development locally
 group :development, :test do
