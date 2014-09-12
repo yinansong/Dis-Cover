@@ -1,21 +1,3 @@
-/*@keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes rotation {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
-}*/
-
 html {
     height: 100%;
     width: 100%;
@@ -66,14 +48,14 @@ section {
 
 #title_wrap {
   text-align:center; /* center horizontally */
-    vertical-align:middle;
-    width: 800px;
-    height: 250px;
-    position: absolute;
-    margin-top: -150px;
-    top: 50%;
-    left: 50%;
-    margin-left: -400px;
+  vertical-align:middle;
+  width: 800px;
+  height: 250px;
+  position: absolute;
+  margin-top: -150px;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
 }
 
 #top_line {
@@ -142,20 +124,20 @@ section {
             -ms-transition: -ms-transform .3s ease-out;
     }
 
-  .item:hover {
+.item:hover {
   background: none;
   cursor: move;
   width: 300px;
-          transform: scale(1.05);
-              -ms-transform:scale(1.05); /* IE 9 */
-              -moz-transform:scale(1.05); /* Firefox */
-              -webkit-transform:scale(1.05); /* Safari and Chrome */
-              -o-transform:scale(1.05); /* Opera */
-          transform-origin: center;
-              -ms-transform-origin: center;
-              -moz-transform-origin: center;
-              -webkit-transform-origin: center;
-              -o-transform-origin: center;
+  transform: scale(1.05);
+      -ms-transform:scale(1.05); /* IE 9 */
+      -moz-transform:scale(1.05); /* Firefox */
+      -webkit-transform:scale(1.05); /* Safari and Chrome */
+      -o-transform:scale(1.05); /* Opera */
+  transform-origin: center;
+      -ms-transform-origin: center;
+      -moz-transform-origin: center;
+      -webkit-transform-origin: center;
+      -o-transform-origin: center;
 }
 
 .item.is-dragging {
@@ -335,85 +317,6 @@ p#meta_location {
   display: block;
 }
 
-#box31:hover #meta_box31 {
-  display: block;
-}
-
-#box32:hover #meta_box32 {
-  display: block;
-}
-
-#box33:hover #meta_box33 {
-  display: block;
-}
-
-#box34:hover #meta_box34 {
-  display: block;
-}
-
-#box35:hover #meta_box35 {
-  display: block;
-}
-
-#box36:hover #meta_box36 {
-  display: block;
-}
-
-#box37:hover #meta_box37 {
-  display: block;
-}
-
-#box38:hover #meta_box38 {
-  display: block;
-}
-
-#box39:hover #meta_box39 {
-  display: block;
-}
-
-#box40:hover #meta_box40 {
-  display: block;
-}
-
-#box41:hover #meta_box41 {
-  display: block;
-}
-
-#box42:hover #meta_box42 {
-  display: block;
-}
-
-#box43:hover #meta_box43 {
-  display: block;
-}
-
-#box44:hover #meta_box44 {
-  display: block;
-}
-
-#box45:hover #meta_box45 {
-  display: block;
-}
-
-#box46:hover #meta_box46 {
-  display: block;
-}
-
-#box47:hover #meta_box47 {
-  display: block;
-}
-
-#box48:hover #meta_box48 {
-  display: block;
-}
-
-#box49:hover #meta_box49 {
-  display: block;
-}
-
-#box50:hover #meta_box50 {
-  display: block;
-}
 
 .close {
   float: right;
@@ -478,10 +381,6 @@ p#meta_location {
   margin-top: 20px;
 }
 
-.meta_location {
-    font-size: 24px;
-}
-
 .meta_year {
 
 }
@@ -494,6 +393,10 @@ p.meta_text {
         width: 275px;
       }
 
+
+.description a:hover {
+  border-bottom: 1px solid #000;
+}
 
 p#meta_location {
         font-size: 24px;
@@ -514,7 +417,7 @@ p#meta_location {
 #menu_right {
   position: fixed;
   right: 25px;
-  top: 10px;
+  top: 12px;
   padding: 16px 10px;
   z-index: 999;
 }
@@ -535,8 +438,11 @@ p#meta_location {
   z-index: 999;
 }
 
+
+/*List Page Based on a Certain Feature*/
+
 .list-of-a-feature {
-  padding: 30px 60px;
+  padding: 20px 18px;
   margin: 0px;
   display: block;
   float: left;
@@ -549,6 +455,19 @@ ul.list-of-a-feature li {
   padding: 3px;
   text-align: center;
   width: 190px;
+}
+
+ul.list-of-a-feature li:hover {
+  transform: scale(1.20);
+      -ms-transform:scale(1.20); /* IE 9 */
+      -moz-transform:scale(1.20); /* Firefox */
+      -webkit-transform:scale(1.20); /* Safari and Chrome */
+      -o-transform:scale(1.20); /* Opera */
+  transform-origin: center;
+      -ms-transform-origin: center;
+      -moz-transform-origin: center;
+      -webkit-transform-origin: center;
+      -o-transform-origin: center;
 }
 
 ul.list-of-a-feature img {

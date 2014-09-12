@@ -89,17 +89,11 @@
     </div>
 
     <div id="menu_right">
-      <table>
-        <thead>
-          <th>
-            <% if session[:access_token] %>
-              <a href="/logout">LOGOUT</a>
-            <% else %>
-              <a href="<%= @fb_login_url %>">LOGIN</a>
-            <% end %>
-          </th>
-        </thead>
-      </table>
+      <% if session[:access_token] %>
+        <a href="/logout">LOGOUT</a>
+      <% else %>
+        <a href="<%= @fb_login_url %>">LOGIN</a>
+      <% end %>
     </div>
 
     <%= yield %>
