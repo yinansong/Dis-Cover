@@ -1,5 +1,5 @@
 <section>
-  <h3>Manhole Covers in the Province/State of <%= @state_or_province.capitalize %></h3>
+  <h3>Manhole Covers in the Province/State of <%= @state_or_province.titleize %></h3>
   <% @certain_state_or_province_array.each_with_index do |manhole_entry| %>
     <%= render(:erb, :"manholecovers/_manholecover_list", :locals => {:manhole_entry => manhole_entry}) %>
   <% end %>

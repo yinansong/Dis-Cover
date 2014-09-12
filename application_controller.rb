@@ -1,10 +1,10 @@
 require './helpers/application_helper'
+require 'active_support/inflector'
 
 class ApplicationController < Sinatra::Base
 
   # Available Helpers
-  include ActionView::Helpers::AssetTagHelper
-  include ActionView::Helpers::DateHelper
+  # include ActiveSupport::Inflector::Inflections
 
   helpers ApplicationHelper
 

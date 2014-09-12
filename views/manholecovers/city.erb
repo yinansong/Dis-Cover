@@ -1,5 +1,5 @@
 <section>
-  <h3>Manhole Covers in the City of <%= @city.capitalize %></h3>
+  <h3>Manhole Covers in the City of <%= @city.titleize %></h3>
   <% @certain_city_array.each_with_index do |manhole_entry| %>
     <%= render(:erb, :"manholecovers/_manholecover_list", :locals => {:manhole_entry => manhole_entry}) %>
   <% end %>
