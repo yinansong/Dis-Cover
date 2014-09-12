@@ -1,9 +1,5 @@
 module ApplicationHelper
 
-  def formatted_title(title)
-    "<h1>#{title}</h1>"
-  end
-
   # options hash for id and class
   def link_to(title, path, options={})
     "<a href=\"#{path}\">#{title}</a>"

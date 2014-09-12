@@ -185,10 +185,6 @@ class App < ApplicationController
     redirect to("/")
   end
 
-  # get('/users') do
-  #   HTTParty.get("https://graph.facebook.com /{user-id}")
-  # end
-
   get('/logout') do
     session[:access_token] = nil
     redirect to("/")

@@ -1,6 +1,6 @@
 <section>
   <h3>Manhole Covers Collected in <%= @year %></h3>
-  <% @same_year_array.each_with_index do |manhole_entry, index|%>
+  <% @same_year_array.each_with_index do |manhole_entry|%>
     <a href="/manholecovers/<%= manhole_entry["id"] %>">
       <ul class="list-of-a-feature">
         <li><img src="/<%= manhole_entry["img"] %>"></li>
