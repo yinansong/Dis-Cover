@@ -73,6 +73,7 @@ class App < ApplicationController
     "This is nowhere to be found."
     redirect to('/')
   end
+
   error 405 do
     "Access forbidden."
     redirect to('/')
@@ -203,6 +204,7 @@ class App < ApplicationController
     @manhole = JSON.parse($redis.get("manholes:#{@id}"))
     render(:erb, :"manholecovers/edit")
   end
+
   put('/manholecovers/:id') do
     @id = params[:id]
     updated_manhole = {
