@@ -1,7 +1,7 @@
 <section id="detail">
   <a href="/manholecovers"><img class="close" src="../images/nonmanholes/close.png"></a>
   <div class="major_image">
-      <img class="big_image" src="../<%= @chosen_manhole["img"] %>">
+      <img class="big_image" src="../images/big/<%= @chosen_manhole["img"] %>">
       <div class="description">
         <p class="meta_text">
           Location:&nbsp;
@@ -34,9 +34,9 @@
   <div id="related_image_part">
     <div id="divider"></div>
     <div class="related_image">
-      <a href="/manholecovers/<%= @random_manhole_of_same_color1["id"] %>"><img class="small_image" src="../<%= @random_manhole_of_same_color1["img"] %>"></a>
-      <a href="/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="small_image" src="../<%= @random_manhole_of_same_color2["img"] %>"></a>
-      <a href="/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="small_image" src="../<%= @random_manhole_of_same_color3["img"] %>"></a>
+      <a href="/manholecovers/<%= @random_manhole_of_same_color1["id"] %>"><img class="small_image" src="../images/small/<%= @random_manhole_of_same_color1["img"] %>"></a>
+      <a href="/manholecovers/<%= @random_manhole_of_same_color2["id"] %>"><img class="small_image" src="../images/small/<%= @random_manhole_of_same_color2["img"] %>"></a>
+      <a href="/manholecovers/<%= @random_manhole_of_same_color3["id"] %>"><img class="small_image" src="../images/small/<%= @random_manhole_of_same_color3["img"] %>"></a>
     </div>
   </div>
 </section>
