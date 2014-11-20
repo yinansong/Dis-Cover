@@ -89,8 +89,13 @@
 
     <script>
       function setDivPos() {
+        var conW = $( window ).width() - 100,
+            conH = $( window ).height() - 100
+        $('#container').css( "width", conW );
+        $('#container').css( "height", conH );
+
         $('.item').each(function(idx, el){
-          var x = Math.floor( Math.random() * $( window ).width() ) - 100;
+          var x = Math.floor( Math.random() * $( window ).width() ) - 150;
           var y = Math.floor( Math.random() * $( window ).height() ) - 100;
           console.log(el);
           el.style.left = x + 'px';

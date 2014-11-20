@@ -1,4 +1,4 @@
-html,body {
+html, body {
   height: 100%;
   width: 100%;
 }
@@ -8,6 +8,10 @@ body {
   background-repeat: repeat;
   overflow: scroll;
   font-family: 'Hammersmith One', sans-serif;
+}
+
+#container {
+  overflow: hidden;
 }
 
 p {
