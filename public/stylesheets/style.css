@@ -13,10 +13,9 @@ body {
 }
 
 p {
-    font-family: 'Hammersmith One', sans-serif;
-    line-height: 160%;
+  font-family: 'Hammersmith One', sans-serif;
+  line-height: 160%;
 }
-
 
 h1 {
   font-size: 65px;

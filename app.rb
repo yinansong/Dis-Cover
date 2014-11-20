@@ -79,14 +79,15 @@ class App < ApplicationController
     redirect to('/')
   end
 
-  get('/blog') do
-    # instagram feed part
-    tagged_w_manholecover_all = HTTParty.get("https://api.instagram.com/v1/tags/manhole/media/recent?client_id=a0d18232c4ae42cd8ddb1343a263cd32")
+  get('/instagram') do
+    # instagram feed
+    tagged_w_manholecover_all = HTTParty.get("https://api.instagram.com/v1/users/1540068060/media/recent/?client_id=a0d18232c4ae42cd8ddb1343a263cd32")
+    # tagged_w_manholecover_all = HTTParty.get("https://api.instagram.com/v1/tags/manhole/media/recent?client_id=a0d18232c4ae42cd8ddb1343a263cd32")
     @tagged_w_manholecover = tagged_w_manholecover_all["data"]
       # @tagged_w_manholecover is an array
 
-    # show all the blogposts
-    render(:erb, :"blogs/index")
+    # show instagram photos
+    render(:erb, :"social/index")
   end
 
   get('/manholecovers/add') do
