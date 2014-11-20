@@ -1,5 +1,6 @@
 require './helpers/application_helper'
 require 'active_support/inflector'
+require 'newrelic_rpm'
 
 class ApplicationController < Sinatra::Base
 
