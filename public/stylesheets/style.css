@@ -6,7 +6,7 @@ html,body {
 body {
   background-image: url('../images/nonmanholes/pixelpattern4.png');
   background-repeat: repeat;
-  overflow: hidden;
+  overflow: scroll;
   font-family: 'Hammersmith One', sans-serif;
 }
 
@@ -109,6 +109,8 @@ section {
 
 .item {
   position: absolute;
+  top: 30%;
+  left: 45%;
   width: 200px;
   /*filter: url(#drop-shadow);
   -webkit-filter: drop-shadow(2px 2px 2px #585858);

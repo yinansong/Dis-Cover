@@ -88,11 +88,10 @@
     <%= yield %>
 
     <script>
-
       function setDivPos() {
         $('.item').each(function(idx, el){
-          var x = Math.floor(Math.random()*1200);
-          var y = Math.floor(Math.random()*750);
+          var x = Math.floor( Math.random() * $( window ).width() ) - 100;
+          var y = Math.floor( Math.random() * $( window ).height() ) - 100;
           console.log(el);
           el.style.left = x + 'px';
           el.style.top = y + 'px';
