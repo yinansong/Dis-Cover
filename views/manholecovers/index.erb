@@ -1,11 +1,14 @@
-<span id="summary"><%= @manholes.size %> manhole covers from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries currently&nbsp;&nbsp;&nbsp;&nbsp;|</span>
+<span id="summary"><%= @manholes.size %> manhole covers from <%= @number_of_cities_uniq %> cities of <%= @number_of_countries_uniq %> countries currently</span>
 
-<!-- spread-out manholes -->
-<% @manhole_samples.each_with_index do |manhole_entry, index| %>
-  <div id='box<%= index %>' class='box'>
-    <a href="/manholecovers/<%= manhole_entry["id"] %>"><img class="item" src="../images/small/<%= manhole_entry["img"] %>" alt="Manhole"></a>
-    <div id="meta_box<%= index %>" class="meta_box">
-      <span class="meta_text"><%= manhole_entry["city"] %>, <%= manhole_entry["state_or_province"] %>, <%= manhole_entry["country"] %> | <%= manhole_entry["year"] %></span>
+<div id="container">
+  <% @manhole_samples.each do |manhole_entry| %>
+    <a href="/manholecovers/<%= manhole_entry["id"] %>">
+      <img class="item" id="item<%= manhole_entry["id"] %>" src="../images/small/<%= manhole_entry["img"] %>" alt="Manholecover">
+    </a>
+
+    <div class="meta_box" id="meta_box<%= manhole_entry["id"] %>">
+        <span class="meta_text"><%= manhole_entry["city"] %>, <%= manhole_entry["state_or_province"] %>, <%= manhole_entry["country"] %> | <%= manhole_entry["year"] %></span>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
+

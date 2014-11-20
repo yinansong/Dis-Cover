@@ -106,12 +106,12 @@ section {
 }
 
 .box {
-  position: absolute;
   left: 45%;
   top:20%;
 }
 
 .item {
+  position: absolute;
   width: 200px;
   /*filter: url(#drop-shadow);
   -webkit-filter: drop-shadow(2px 2px 2px #585858);
@@ -196,127 +196,6 @@ p#meta_location {
   bottom: 4%;
   padding: 25px;
 }
-
-#box1:hover #meta_box1 {
-  display: block;
-}
-
-#box2:hover #meta_box2 {
-  display: block;
-}
-
-#box3:hover #meta_box3 {
-  display: block;
-}
-
-#box4:hover #meta_box4 {
-  display: block;
-}
-
-#box5:hover #meta_box5 {
-  display: block;
-}
-
-#box6:hover #meta_box6 {
-  display: block;
-}
-
-#box7:hover #meta_box7 {
-  display: block;
-}
-
-#box8:hover #meta_box8 {
-  display: block;
-}
-
-#box9:hover #meta_box9 {
-  display: block;
-}
-
-#box10:hover #meta_box10 {
-  display: block;
-}
-
-#box11:hover #meta_box11 {
-  display: block;
-}
-
-#box12:hover #meta_box12 {
-  display: block;
-}
-
-#box13:hover #meta_box13 {
-  display: block;
-}
-
-#box14:hover #meta_box14 {
-  display: block;
-}
-
-#box15:hover #meta_box15 {
-  display: block;
-}
-
-#box16:hover #meta_box16 {
-  display: block;
-}
-
-#box17:hover #meta_box17 {
-  display: block;
-}
-
-#box18:hover #meta_box18 {
-  display: block;
-}
-
-#box19:hover #meta_box19 {
-  display: block;
-}
-
-#box20:hover #meta_box20 {
-  display: block;
-}
-
-#box21:hover #meta_box21 {
-  display: block;
-}
-
-#box22:hover #meta_box22 {
-  display: block;
-}
-
-#box23:hover #meta_box23 {
-  display: block;
-}
-
-#box24:hover #meta_box24 {
-  display: block;
-}
-
-#box25:hover #meta_box25 {
-  display: block;
-}
-
-#box26:hover #meta_box26 {
-  display: block;
-}
-
-#box27:hover #meta_box27 {
-  display: block;
-}
-
-#box28:hover #meta_box28 {
-  display: block;
-}
-
-#box29:hover #meta_box29 {
-  display: block;
-}
-
-#box30:hover #meta_box30 {
-  display: block;
-}
-
 
 .close {
   float: right;
