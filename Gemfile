@@ -8,6 +8,7 @@ gem 'redis',  '3.1.0'
 gem 'httparty'
 gem 'rack'
 gem 'actionview', '~> 4.1.5', require: "action_view"
+gem 'newrelic_rpm'
 
 # only used in development locally
 group :development, :test do
