@@ -113,16 +113,16 @@ section {
 
 .item {
   width: 200px;
-        -webkit-filter: drop-shadow(2px 2px 2px #585858);
-        filter: url(#drop-shadow);
-        -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-        filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-        transition: transform .3s ease-out;
-            -webkit-transition: -webkit-transform .3s ease-out;
-            -moz-transition: -moz-transform .3s ease-out;
-            -o-transition: -o-transform .3s ease-out;
-            -ms-transition: -ms-transform .3s ease-out;
-    }
+  /*filter: url(#drop-shadow);
+  -webkit-filter: drop-shadow(2px 2px 2px #585858);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";*/
+  transition: transform .3s ease-out;
+  -webkit-transition: -webkit-transform .3s ease-out;
+  -moz-transition: -moz-transform .3s ease-out;
+  -o-transition: -o-transform .3s ease-out;
+  -ms-transition: -ms-transform .3s ease-out;
+}
 
 .item:hover {
   background: none;

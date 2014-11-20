@@ -26,9 +26,9 @@
     <script type="text/javascript">
       $(document).ready(function() {
         $(".item").draggable(
-          {cursor:"move",
-          cursorAt: { top: 100, left: 100}
-          containment:"body"
+          {cursor: "move",
+          cursorAt: { top: 100, left: 100},
+          containment: "body"
           }
         );
       });
@@ -50,12 +50,21 @@
 
     <script type='text/javascript'>
       function setDivPos() {
-          for (i=1; i<=50; i++) {
-            var x = Math.floor(Math.random()*1200);
-            var y = Math.floor(Math.random()*750);
-            document.getElementById('box'+i).style.left = x + 'px';
-            document.getElementById('box'+i).style.top = y + 'px';
-        }
+        // debugger;
+        $('.box').each(function(idx, el){
+          var x = Math.floor(Math.random()*1200);
+          var y = Math.floor(Math.random()*750);
+          console.log(el);
+          el.style.left = x + 'px';
+          el.style.top = y + 'px';
+        });
+
+        // for (i=1; i<=30; i++) {
+        //   var x = Math.floor(Math.random()*1200);
+        //   var y = Math.floor(Math.random()*750);
+        //   document.getElementById('box'+i).style.left = x + 'px';
+        //   document.getElementById('box'+i).style.top = y + 'px';
+        // }
       }
     </script>
   </head>
