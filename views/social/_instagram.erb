@@ -1,7 +1,8 @@
-<h3>Follow Project DisCover on Instagram</h3>
+<h3>Follow Project DisCover on Instagram!</h3>
+<p class="about_text" style="margin-bottom: 20px;">Receive daily update of new manhole covers and news for the project.</p>
 <ul>
-  <% @tagged_w_manholecover.first(9).each do |manhole_entry| %>
-  <a href="<%= manhole_entry["link"] %>"><img src="<%= manhole_entry["images"]["low_resolution"]["url"] %>" style="width:200px;"></a>
+  <% @tagged_w_manholecover.first(12).each do |manhole_entry| %>
+    <a href="<%= manhole_entry["link"] %>"><img src="<%= manhole_entry["images"]["low_resolution"]["url"] %>" style="width:200px;"></a>
   <% end %>
 </ul>
 

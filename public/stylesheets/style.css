@@ -1,14 +1,12 @@
-html {
-    height: 100%;
-    width: 100%;
-  }
-
-body {
+html,body {
   height: 100%;
   width: 100%;
+}
+
+body {
   background-image: url('../images/nonmanholes/pixelpattern4.png');
   background-repeat: repeat;
-  overflow: scroll;
+  overflow: hidden;
   font-family: 'Hammersmith One', sans-serif;
 }
 
@@ -90,7 +88,7 @@ section {
   padding: 10px;
 }
 
-#about_text {
+.about_text {
   font-family: 'Lato', sans-serif;
   line-height: 180%;
 }
